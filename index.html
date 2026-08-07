@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="pt-BR" class="is-mobile-hero">
+
+<head>
+  <!-- Metadados mínimos para uma página responsiva e encontrável. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Joseane Alves — Sites e Sistemas Web pensados de forma estratégica para o seu negócio.">
+  <title>Joseane Alves | Sites &amp; Sistemas Web</title>
+  <!-- Poppins organiza a interface; Caveat dá o tom humano aos elementos de processo. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cloudflare.com">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/components/PostIt.css">
+  <link rel="stylesheet" href="/components/section-situacao.css">
+  <link rel="stylesheet" href="/components/SituationCard.css">
+</head>
+
+<body>
+  <!-- HEADER: marca, navegação desktop e gatilho acessível do menu móvel. -->
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <!-- A marca é um link para o início para facilitar o retorno à Hero. -->
+      <a class="brand" href="#inicio" aria-label="Joseane Alves — início">
+        <span class="brand__monogram" aria-hidden="true">JA</span>
+        <span class="brand__name">Joseane Alves<small>Sites &amp; Sistemas Web</small></span>
+      </a>
+
+      <!-- Esta navegação só aparece acima do breakpoint de tablet. -->
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a aria-current="page" href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#cases">Cases</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a class="header-cta" href="#simulador">Simular meu projeto</a>
+
+      <!-- aria-controls aponta para #mobile-menu; o JS atualiza aria-expanded. -->
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="sr-only">Abrir menu</span>
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <!-- O atributo hidden garante que o menu fechado não receba foco. -->
+    <nav class="mobile-nav" id="mobile-menu" aria-label="Navegação móvel" hidden>
+      <div class="container mobile-nav__inner">
+        <a aria-current="page" href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a><a href="#cases">Cases</a><a href="#sobre">Sobre</a>
+        <a href="#como-funciona">Como funciona</a><a href="#faq">FAQ</a>
+        <a class="button button--primary" href="#simulador">Simular meu projeto <span aria-hidden="true">→</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <!-- HERO: a única seção desta primeira etapa. -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner container">
+        <!-- Coluna editorial: mantém o único h1 do documento. -->
+        <div class="hero__copy">
+          <p class="hero__eyebrow">Antes de desenvolver,</p>
+          <h1 id="hero-title">eu descubro o que<br>seu negócio <em>realmente</em><br>precisa para crescer.</h1>
+
+          <ul class="hero__points">
+            <li>Nem todo problema precisa de um site.</li>
+            <li>Nem todo site precisa ser do mesmo jeito.</li>
+            <li>Soluções estratégicas, pensadas para gerar resultados reais e fazer sentido para o seu negócio.</li>
+          </ul>
+
+          <div class="hero__actions">
+            <a class="button button--primary" href="#simulador">Simular meu projeto <span
+                aria-hidden="true">→</span></a>
+            <!-- Troque somente WHATSAPP_NUMBER por DDI + DDD + número, sem espaços. -->
+            <a class="button button--secondary" href="https://wa.me/WHATSAPP_NUMBER" data-whatsapp-link>
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path
+                  d="M20.5 3.5A11.7 11.7 0 0 0 12.1 0C5.6 0 .4 5.3.4 11.8c0 2.1.6 4.1 1.6 5.8L.2 24l6.6-1.7a11.6 11.6 0 0 0 5.3 1.3h.1c6.5 0 11.7-5.3 11.7-11.8 0-3.1-1.2-6.1-3.4-8.3Zm-8.4 18.1h-.1a9.7 9.7 0 0 1-4.9-1.3l-.4-.2-3.9 1 1-3.8-.3-.4a9.9 9.9 0 1 1 8.6 4.7Z" />
+              </svg>
+              Falar no WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Coluna visual: fluxo composto por HTML; o SVG complementa apenas as conexões. -->
+        <div class="hero__visual" aria-label="Fluxograma: como eu penso antes de codar">
+          <!-- Desktop -->
+          <div class="paper-flow">
+            <div class="paper-flow__tape" aria-hidden="true"></div>
+            <!-- Rabiscos sutis para tirar o aspecto geométrico/corporativo do papel. -->
+            <svg class="flow-doodle" viewBox="0 0 500 620" preserveAspectRatio="none" aria-hidden="true">
+              <path
+                d="M22 44c14-11 26-11 36 0m-30 5 8 7m-8-7 8-7M449 70c14 4 23 14 27 28m-26-10 10 1m-1-9 1 10M29 555c9-6 20-7 30-2m-13-9-2 9 9 2M444 556c13 7 25 6 34-3" />
+              <path d="M36 111h42m-42 8h25M420 489h43m-43 8h29" />
+            </svg>
+            <p class="flow-title">Como eu penso<br>antes de codar</p>
+
+            <!-- Post-its independentes: fáceis de editar sem tocar no diagrama. -->
+            <div class="sticky sticky--goal">Objetivo:<br><strong>Aumentar conversões<br>e otimizar processos</strong>
+            </div>
+            <div class="sticky sticky--function">Não é sobre<br>fazer bonito.<br>É
+              sobre<br><strong>funcionar.</strong><span aria-hidden="true">☆</span></div>
+
+            <!-- Linhas do fluxo. viewBox mantém a proporção ao redimensionar o papel. -->
+            <svg class="flow-lines" viewBox="0 0 500 620" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <marker id="arrow" markerWidth="9" markerHeight="9" refX="4" refY="4" orient="auto">
+                  <path d="M1 1 7 4 1 7" fill="none" stroke="currentColor" stroke-width="1.4" />
+                </marker>
+              </defs>
+              <path class="flow-line"
+                d="M250 95 L250 126 M250 167 L250 198 M250 248 L250 278 M250 344 L250 372 M67 414 H433 M67 414 V431 M188 414 V431 M311 414 V431 M433 414 V431 M67 470 H433 M67 470 V488 M188 470 V488 M311 470 V488 M433 470 V488"
+                marker-end="url(#arrow)" />
+            </svg>
+
+            <!-- Etapas principais. Mantê-las em HTML preserva leitura e adaptação responsiva. -->
+            <ol class="flow-steps">
+              <li class="flow-step flow-step--understand"><span>Entender o negócio</span></li>
+              <li class="flow-step flow-step--identify"><span>Identificar o problema<br>real</span></li>
+              <li class="flow-step flow-step--decision"><span>Qual a melhor<br>solução?</span></li>
+            </ol>
+            <div class="flow-solutions" aria-label="Soluções possíveis"><span>Site</span><span>Landing
+                Page</span><span>Sistema</span><span>Integração</span></div>
+            <div class="flow-process" aria-label="Etapas do processo">
+              <span>Planejar</span><span>Criar</span><span>Testar</span><span>Evoluir</span>
+            </div>
+
+            <!-- Em celular, o resumo é inicial e details dá acesso ao conteúdo completo sem JavaScript. -->
+            <details class="mobile-flow-details">
+              <summary>Ver fluxo completo</summary>
+              <div>
+                <p><strong>Soluções</strong></p>
+                <p>Site · Landing Page · Sistema · Integração</p>
+                <p><strong>Processo</strong></p>
+                <p>Planejar · Criar · Testar · Evoluir</p>
+              </div>
+            </details>
+          </div>
+
+          <!-- Tablet/Mobile -->
+          <picture class="paper-image">
+
+            <source media="(max-width:560px)" srcset="assets/img/Folha-papel-mobile.webp">
+
+            <img src="assets/img/Folha-papel-tablet.webp" alt="Fluxograma ilustrando meu processo de trabalho.">
+
+          </picture>
+
+        </div>
+      </div>
+    </section>
+    </div>
+
+    <!-- ============================================================
+     SEÇÃO: Qual situação mais parece com a sua
+     ============================================================ -->
+    <section class="situacao" id="situacao" aria-labelledby="situacao-titulo">
+      <div class="container situacao__inner">
+
+        <p class="situacao__eyebrow" id="situacao-titulo">Qual situação mais parece com a sua?</p>
+
+        <div class="situacao__grid" data-situacao-grid>
+
+          <!-- Card 1 -->
+          <details class="situation-card" open style="--card-delay: 80ms;">
+            <summary class="situation-card__summary">
+              <span class="situation-card__icon-wrap">
+                <svg class="situation-card__icon" width="16px" height="16px" viewBox="0 0 24 24" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path
+                      d="M21 12C21 16.9706 16.9706 21 12 21M21 12C21 7.02944 16.9706 3 12 3M21 12C21 13.6569 16.9706 15 12 15C7.02944 15 3 13.6569 3 12M21 12C21 10.3431 16.9706 9 12 9C7.02944 9 3 10.3431 3 12M12 21C7.02944 21 3 16.9706 3 12M12 21C10.3431 21 9 16.9706 9 12C9 7.02944 10.3431 3 12 3M12 21C13.6569 21 15 16.9706 15 12C15 7.02944 13.6569 3 12 3M3 12C3 7.02944 7.02944 3 12 3"
+                      stroke="#cf5d35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </g>
+                </svg>
+              </span>
+              <h3 class="situation-card__title">Meu negócio ainda não tem presença digital</h3>
+              <svg class="situation-card__chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true" focusable="false">
+                <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </summary>
+            <div class="situation-card__content">
+              <div class="situation-card__content-inner">
+                <p class="situation-card__text">Um site profissional que passa credibilidade e abre novas oportunidades.
+                </p>
+                <a class="situation-card__link" href="#contato">Quero um site <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </details>
+
+          <!-- Card 2 -->
+          <details class="situation-card" open style="--card-delay: 80ms;">
+            <summary class="situation-card__summary">
+              <span class="situation-card__icon-wrap">
+                <svg class="situation-card__icon" fill="#cf5d35" width="16px" height="16px" viewBox="0 0 16 16"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path
+                      d="M2.67 10.73a3.52 3.52 0 0 0-.94 1.93 5 5 0 0 0-.07 1.1v.58h.8a5.05 5.05 0 0 0 .88-.08 3.46 3.46 0 0 0 1.93-.94 1.76 1.76 0 0 0-.14-2.48 1.76 1.76 0 0 0-2.46-.11zm1.74 1.73a2.26 2.26 0 0 1-1.26.6h-.22v-.22a2.26 2.26 0 0 1 .6-1.26.36.36 0 0 1 .24-.08.67.67 0 0 1 .47.22.54.54 0 0 1 .17.74zM14.65 2.24a.91.91 0 0 0-.89-.89A8.75 8.75 0 0 0 7.27 3.5L5.64 5.4l-2.4-.5a1 1 0 0 0-.92.27l-.68.68a1 1 0 0 0-.28.81 1 1 0 0 0 .45.74l2.06 1.32.13.08 3.2 3.25.08.08 1.32 2.06a1 1 0 0 0 .74.45h.11a1 1 0 0 0 .7-.29l.68-.68a1 1 0 0 0 .27-.92l-.5-2.39 1.84-1.58a8.79 8.79 0 0 0 2.21-6.54zM3.11 6.15l1.32.28-.64.75-1-.67zm6.38 7.1-.67-1 .75-.64.28 1.32zm2.39-5.11.18.17zm-.28-.28L7.92 11 5 8.08 8.14 4.4a7.44 7.44 0 0 1 5.26-1.8 7.48 7.48 0 0 1-1.8 5.26z">
+                    </path>
+                    <path d="M11.13 6.63a1.19 1.19 0 0 0-.06-1.7 1.16 1.16 0 1 0-1.64 1.63 1.2 1.2 0 0 0 1.7.07z">
+                    </path>
+                  </g>
+                </svg>
+              </span>
+              <h3 class="situation-card__title">Preciso gerar mais contatos e vendas</h3>
+              <svg class="situation-card__chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true" focusable="false">
+                <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </summary>
+            <div class="situation-card__content">
+              <div class="situation-card__content-inner">
+                <p class="situation-card__text">Landing pages focadas em levar o visitante da oferta até o contato ou
+                  compra.</p>
+                <a class="situation-card__link" href="#contato">Quero uma landing page <span
+                    aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </details>
+
+          <!-- Card 3 -->
+          <details class="situation-card" open style="--card-delay: 160ms;">
+            <summary class="situation-card__summary">
+              <span class="situation-card__icon-wrap">
+                <svg class="situation-card__icon" width="16px" height="16px" viewBox="0 0 24 24" id="Layer_1"
+                  data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="none">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <defs>
+                      <style>
+                        .cls-1 {
+                          fill: none;
+                          stroke: #cf5d35;
+                          stroke-miterlimit: 10;
+                          stroke-width: 1.91px;
+                        }
+                      </style>
+                    </defs>
+                    <circle class="cls-1" cx="12" cy="10.07" r="2.86"></circle>
+                    <line class="cls-1" x1="12" y1="7.2" x2="12" y2="5.3"></line>
+                    <line class="cls-1" x1="12" y1="7.2" x2="12" y2="5.3"></line>
+                    <line class="cls-1" x1="12" y1="14.84" x2="12" y2="12.93"></line>
+                    <line class="cls-1" x1="9.52" y1="8.64" x2="7.87" y2="7.68"></line>
+                    <line class="cls-1" x1="9.52" y1="8.64" x2="7.87" y2="7.68"></line>
+                    <line class="cls-1" x1="16.13" y1="12.45" x2="14.48" y2="11.5"></line>
+                    <line class="cls-1" x1="14.48" y1="8.64" x2="16.13" y2="7.68"></line>
+                    <line class="cls-1" x1="14.48" y1="8.64" x2="16.13" y2="7.68"></line>
+                    <line class="cls-1" x1="7.87" y1="12.45" x2="9.52" y2="11.5"></line>
+                    <path class="cls-1"
+                      d="M1.5,5.3v9.54a3.82,3.82,0,0,0,3.82,3.82H7.23v2.86L13,18.66h5.73a3.82,3.82,0,0,0,3.82-3.82V5.3a3.82,3.82,0,0,0-3.82-3.82H5.32A3.82,3.82,0,0,0,1.5,5.3Z">
+                    </path>
+                  </g>
+                </svg>
+
+              </span>
+              <h3 class="situation-card__title">Meus processos são manuais e lentos</h3>
+              <svg class="situation-card__chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true" focusable="false">
+                <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </summary>
+            <div class="situation-card__content">
+              <div class="situation-card__content-inner">
+                <p class="situation-card__text">Sistemas que otimizam tarefas, integram informações e economizam tempo e
+                  dinheiro.</p>
+                <a class="situation-card__link" href="#contato">Quero um sistema <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </details>
+
+          <!-- Card 4 -->
+          <details class="situation-card" open style="--card-delay: 240ms;">
+            <summary class="situation-card__summary">
+              <span class="situation-card__icon-wrap">
+                <img class="situation-card__icon" src="/assets/svg/Vector.svg" alt="Sou agência ou preciso de parceria">
+              </span>
+              <h3 class="situation-card__title">Sou agência ou preciso de parceria</h3>
+              <svg class="situation-card__chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true" focusable="false">
+                <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </summary>
+            <div class="situation-card__content">
+              <div class="situation-card__content-inner">
+                <p class="situation-card__text">Desenvolvimento white-label, entregas no prazo e comunicação clara.</p>
+                <a class="situation-card__link" href="#contato">Quero ser parceiro(a) <span
+                    aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </details>
+
+        </div>
+
+        <div class="situacao__footer" data-situacao-footer>
+          <div class="situacao__prompt">
+            <svg xmlns="http://w3.org" viewBox="0 0 100 100" width="100" height="100">
+              <defs>
+                <!-- Definição da ponta da seta em V (estilo desenho à mão) -->
+                <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="8" markerHeight="8"
+                  orient="auto-start-reverse">
+                  <path d="M 2 2 L 7 5 L 2 8" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </marker>
+              </defs>
+
+              <!-- O traçado começa na direita (105,40), sobe em arco e desce apontando para a esquerda (40,70) -->
+              <path d="M 105 40 Q 75 15 40 70" fill="none" stroke="#555" stroke-width="3" stroke-linecap="round"
+                marker-end="url(#arrow)" />
+            </svg>
+
+
+            <div class="post-it" style="--tilt: -3deg;" tabindex="0">
+              <p class="post-it__line post-it__line--main">Ainda não sei por onde começar?</p>
+              <p class="post-it__line post-it__line--reveal">Tudo bem. Eu descubro isso junto com você.</p>
+            </div>
+          </div>
+
+          <a class="button button--primary situacao__cta" href="#simulador">
+            Simular meu projeto <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <!-- JS no fim do body: garante que os elementos já existam antes de serem selecionados. -->
+  <script src="/js/main.js"></script>
+  <script src="/components/section-situacao.js"></script>
+</body>
+
+</html>

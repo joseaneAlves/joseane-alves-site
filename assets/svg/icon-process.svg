@@ -1,0 +1,5 @@
+<svg class="situation-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <path d="M8 13.5C8 11 10 9 12.5 9H35.5C38 9 40 11 40 13.5V27C40 29.5 38 31.5 35.5 31.5H21L14 37.5V31.5H12.5C10 31.5 8 29.5 8 27V13.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+  <circle cx="24" cy="20" r="4.6" stroke="currentColor" stroke-width="1.6"/>
+  <path d="M24 13.6V15.4M24 24.6V26.4M30.2 20H28.4M19.6 20H17.8M28.4 15.6L27.1 16.9M20.9 23.1L19.6 24.4M28.4 24.4L27.1 23.1M20.9 16.9L19.6 15.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+</svg>

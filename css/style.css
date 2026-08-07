@@ -1,0 +1,1022 @@
+/* ========================================================================== 
+   1. TOKENS GLOBAIS — altere cores, larguras, raios e fontes neste bloco.
+   ========================================================================== */
+:root {
+   --cream: #fbf7f0;
+   --paper: #fffdf9;
+   --paper-warm: #f3eee4;
+   --charcoal: #17201f;
+   --muted: #53605a;
+   --terracotta: #cf5d35;
+   --terracotta-dark: #aa4528;
+   --green: #708363;
+   --green-pale: #d4dda4;
+   --coral-pale: #f6c8bd;
+   --line: #27342f;
+   --container: 1320px;
+   --page-padding: clamp(1.25rem, 3vw, 3rem);
+   --radius: .25rem;
+   --radiusCard: .75rem;
+   --shadow: 0 1.25rem 2.4rem rgba(54, 43, 31, .12);
+   --transition: 180ms ease;
+   --sans: "Poppins", Arial, sans-serif;
+   --hand: "Caveat", "Segoe Print", cursive;
+}
+
+/* MAPA DE CLASSES
+   .container centraliza o conteúdo; .site-header reúne toda a navegação.
+   .brand, .desktop-nav, .mobile-nav e .menu-toggle formam o Header.
+   .hero__copy é a coluna editorial; .hero__visual contém o diagrama.
+   .paper-flow é a folha; .flow-* são etapas, linhas e grupos do fluxograma.
+   .sticky, .sticky--goal e .sticky--function são os post-its independentes.
+   .button é a base dos CTAs; --primary e --secondary são seus modificadores.
+   .is-animating é uma classe temporária no <html>, controlada por main.js. */
+
+/* 2. BASE: reset pequeno, acessibilidade e largura centralizada reutilizável. */
+* {
+   box-sizing: border-box;
+}
+
+html {
+   scroll-behavior: smooth;
+}
+
+body {
+   margin: 0;
+   min-width: 320px;
+   overflow-x: hidden;
+   color: var(--charcoal);
+   background: var(--cream);
+   font-family: var(--sans);
+}
+
+a {
+   color: inherit;
+   text-decoration: none;
+}
+
+button {
+   font: inherit;
+}
+
+.container {
+   width: min(100% - (var(--page-padding) * 2), var(--container));
+   margin-inline: auto;
+}
+
+.sr-only {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   padding: 0;
+   margin: -1px;
+   overflow: hidden;
+   clip: rect(0, 0, 0, 0);
+   white-space: nowrap;
+   border: 0;
+}
+
+:focus-visible {
+   outline: 3px solid var(--terracotta);
+   outline-offset: 4px;
+}
+
+/* ========================================================================== 
+   3. HEADER — desktop exibe .desktop-nav; menu móvel aparece no breakpoint.
+   ========================================================================== */
+.site-header {
+   position: relative;
+   z-index: 10;
+   padding: 1rem 0 0;
+}
+
+.site-header__inner {
+   min-height: 3.7rem;
+   display: flex;
+   align-items: center;
+   gap: 1.5rem;
+}
+
+.brand {
+   display: inline-flex;
+   flex-shrink: 0;
+   align-items: center;
+   gap: .7rem;
+}
+
+.brand__monogram {
+   color: var(--terracotta);
+   font-family: Georgia, serif;
+   font-size: 2.35rem;
+   line-height: 1;
+   letter-spacing: -.15em;
+}
+
+.brand__name {
+   display: grid;
+   gap: .1rem;
+   font-size: .84rem;
+   font-weight: 600;
+   letter-spacing: -.04em;
+   line-height: 1.1;
+}
+
+.brand__name small {
+   font-size: .52rem;
+   font-weight: 500;
+}
+
+.desktop-nav {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: clamp(1.1rem, 2.2vw, 2.1rem);
+   margin-left: auto;
+   font-size: 13px;
+   font-weight: 500;
+}
+
+.desktop-nav a {
+   position: relative;
+   padding-block: .65rem;
+}
+
+.desktop-nav a::after {
+   position: absolute;
+   right: 0;
+   bottom: .35rem;
+   left: 0;
+   height: 1px;
+   content: "";
+   background: var(--terracotta);
+   transform: scaleX(0);
+   transition: transform var(--transition);
+}
+
+.desktop-nav a:hover::after,
+.desktop-nav a[aria-current="page"]::after {
+   transform: scaleX(1);
+}
+
+.header-cta {
+   flex-shrink: 0;
+   margin-left: .6rem;
+   padding: .85rem 1.25rem;
+   border-radius: var(--radius);
+   color: #fff;
+   background: var(--terracotta);
+   font-size: 13px;
+   font-weight: 600;
+   transition: background var(--transition), transform var(--transition);
+}
+
+.header-cta:hover {
+   background: var(--terracotta-dark);
+   transform: translateY(-1px);
+}
+
+/* O botão contém um texto somente para leitores de tela e três traços visuais. */
+.menu-toggle {
+   display: none;
+   width: 2.75rem;
+   height: 2.75rem;
+   padding: .65rem;
+   border: 0;
+   color: var(--charcoal);
+   background: transparent;
+   cursor: pointer;
+}
+
+.menu-toggle span:not(.sr-only) {
+   display: block;
+   width: 1.15rem;
+   height: 2px;
+   margin: .22rem auto;
+   background: currentColor;
+   transition: transform var(--transition), opacity var(--transition);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-of-type(2) {
+   transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-of-type(3) {
+   opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-of-type(4) {
+   transform: translateY(-6px) rotate(-45deg);
+}
+
+.mobile-nav {
+   padding: .65rem 0 1.15rem;
+   border-bottom: 1px solid rgba(23, 32, 31, .12);
+   background: var(--cream);
+}
+
+.mobile-nav__inner {
+   display: grid;
+   gap: .15rem;
+}
+
+.mobile-nav a:not(.button) {
+   padding: .8rem 0;
+   border-bottom: 1px solid rgba(23, 32, 31, .1);
+   font-size: .94rem;
+   font-weight: 700;
+}
+
+.mobile-nav .button {
+   justify-self: start;
+   margin-top: .85rem;
+}
+
+/* ========================================================================== 
+   4. HERO EDITORIAL — texto, lista de argumentos e CTAs.
+   ========================================================================== */
+.hero {
+   position: relative;
+   isolation: isolate;
+   padding: clamp(1.75rem, 3vw, 3.25rem) 0 clamp(2.75rem, 4vw, 4.25rem);
+   background: var(--cream) url("../assets/img/hero-desktop.webp") center center / cover repeat-y;
+}
+
+.hero::before {
+   position: absolute;
+   inset: 0;
+   z-index: -1;
+   content: "";
+   background: rgba(255, 253, 248, .08);
+}
+
+/* Desktop: texto e diagrama têm peso visual semelhante. */
+.hero__inner {
+   display: grid;
+   grid-template-columns: minmax(27rem, 1.05fr) minmax(23rem, .95fr);
+   align-items: center;
+   gap: clamp(2.5rem, 4.5vw, 5rem);
+}
+
+.hero__copy {
+   max-width: 34rem;
+}
+
+.hero__eyebrow {
+   margin: 0 0 .8rem;
+   font-family: var(--hand);
+   font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+   font-weight: 600;
+}
+
+h1 {
+   max-width: 31rem;
+   margin: 0;
+   font-size: clamp(2.6rem, 3.8vw, 3.85rem);
+   font-weight: 600;
+   letter-spacing: -.074em;
+   line-height: .97;
+}
+
+h1 em {
+   color: var(--terracotta);
+   font-style: normal;
+}
+
+.hero__points {
+   display: grid;
+   gap: .65rem;
+   max-width: 32rem;
+   padding: 0;
+   margin: clamp(1.8rem, 3vw, 2.7rem) 0 0;
+   list-style: none;
+   font-size: clamp(.78rem, .95vw, .95rem);
+   font-weight: 400;
+   line-height: 1.5;
+}
+
+.hero__points li {
+   position: relative;
+   padding-left: 1.45rem;
+}
+
+.hero__points li::before {
+   position: absolute;
+   top: .1rem;
+   left: .05rem;
+   color: var(--green);
+   content: "✓";
+   font-size: 1.05em;
+   font-weight: 900;
+}
+
+.hero__actions {
+   display: flex;
+   flex-wrap: wrap;
+   gap: .75rem;
+   margin-top: clamp(1.6rem, 2.5vw, 2.25rem);
+}
+
+.button {
+   display: inline-flex;
+   min-height: 3rem;
+   align-items: center;
+   justify-content: center;
+   gap: .6rem;
+   padding: .8rem 1.15rem;
+   border: 1px solid transparent;
+   border-radius: var(--radius);
+   font-size: 13px;
+   font-weight: 600;
+   transition: color var(--transition), background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.button span {
+   font-size: 1.15rem;
+   line-height: 0;
+}
+
+.button--primary {
+   color: #fff;
+   background: var(--terracotta);
+}
+
+.button--primary:hover {
+   background: var(--terracotta-dark);
+   transform: translateY(-2px);
+}
+
+.button--secondary {
+   border-color: rgba(23, 32, 31, .62);
+   background: transparent;
+}
+
+.button--secondary:hover {
+   border-color: var(--charcoal);
+   background: var(--paper);
+   transform: translateY(-2px);
+}
+
+.button svg {
+   width: 1rem;
+   height: 1rem;
+   fill: currentColor;
+}
+
+/* ========================================================================== 
+   5. FLUXOGRAMA — papel, etapas HTML, post-its e linhas SVG.
+   ========================================================================== */
+.hero__visual {
+   order: -1;
+   min-width: 0;
+}
+
+.paper-image {
+   display: none;
+}
+
+.paper-flow {
+   position: relative;
+   width: min(100%, 34rem, 59.6vh);
+   aspect-ratio: 500/620;
+   max-height: min(900px, 90vh);
+   margin-inline: auto;
+   padding: 2.45rem 1.7rem 1.5rem;
+   overflow: visible;
+   border: 1px solid rgba(99, 83, 59, .2);
+   border-radius: .1rem;
+   background: radial-gradient(rgba(76, 63, 46, .08) .65px, transparent .8px) 0 0/9px 9px, linear-gradient(108deg, rgba(255, 255, 255, .6), transparent 34%), var(--paper-warm);
+   box-shadow: 6px 8px 0 rgba(103, 84, 58, .08), var(--shadow);
+   transform: rotate(-1.1deg);
+}
+
+/* Pseudo-elementos simulam wireframes discretos, sem depender de imagens externas. */
+.paper-flow::before,
+.paper-flow::after {
+   position: absolute;
+   z-index: -1;
+   content: "";
+   border: 1px solid rgba(112, 131, 99, .28);
+}
+
+.paper-flow::before {
+   width: 6.2rem;
+   height: 6.2rem;
+   top: 8%;
+   left: -4.6rem;
+   border-right: 0;
+   background: repeating-linear-gradient(0deg, transparent 0 10px, rgba(112, 131, 99, .15) 11px 12px), repeating-linear-gradient(90deg, transparent 0 13px, rgba(112, 131, 99, .15) 14px 15px);
+}
+
+.paper-flow::after {
+   width: 8.5rem;
+   height: 5rem;
+   right: -2.2rem;
+   bottom: 1.7rem;
+   border-left: 0;
+   border-bottom: 0;
+   transform: rotate(5deg);
+}
+
+.paper-flow__tape {
+   position: absolute;
+   width: 4.5rem;
+   height: 1.2rem;
+   top: -.55rem;
+   left: 15%;
+   opacity: .62;
+   background: rgba(225, 204, 166, .76);
+   transform: rotate(-6deg);
+}
+
+.flow-doodle {
+   position: absolute;
+   inset: 0;
+   z-index: 0;
+   width: 100%;
+   height: 100%;
+   color: rgba(39, 52, 47, .35);
+   pointer-events: none;
+}
+
+.flow-doodle path {
+   fill: none;
+   stroke: currentColor;
+   stroke-width: 1.2;
+   stroke-linecap: round;
+   stroke-dasharray: 1 2;
+}
+
+.flow-title {
+   position: relative;
+   z-index: 2;
+   width: max-content;
+   margin: 0 auto 1.15rem;
+   font-family: var(--hand);
+   text-align: center;
+   text-transform: uppercase;
+   font-size: clamp(.95rem, 1.35vw, 1.2rem);
+   font-weight: 700;
+   letter-spacing: .07em;
+   line-height: 1.1;
+}
+
+.flow-lines {
+   position: absolute;
+   z-index: 0;
+   inset: 5.1rem 1.7rem 1.5rem;
+   width: calc(100% - 3.4rem);
+   height: calc(100% - 6.6rem);
+   color: var(--line);
+   overflow: visible;
+}
+
+.flow-line {
+   fill: none;
+   stroke: currentColor;
+   stroke-width: 1.55;
+   stroke-linecap: round;
+   stroke-linejoin: round;
+}
+
+.flow-steps,
+.flow-solutions,
+.flow-process {
+   position: relative;
+   z-index: 1;
+   padding: 0;
+   margin: 0;
+   list-style: none;
+}
+
+.flow-steps {
+   display: grid;
+   justify-items: center;
+   gap: .78rem;
+}
+
+.flow-step {
+   --tilt: -1deg;
+   display: grid;
+   min-width: 10.2rem;
+   place-items: center;
+   padding: .38rem .65rem;
+   border: 1.45px solid var(--line);
+   border-radius: .1rem;
+   background: rgba(255, 253, 249, .82);
+   font-family: var(--hand);
+   text-align: center;
+   font-size: clamp(.9rem, 1.1vw, 1.04rem);
+   font-weight: 600;
+   line-height: 1.05;
+   transform: rotate(var(--tilt));
+}
+
+.flow-step--identify {
+   --tilt: .8deg;
+}
+
+.flow-step--decision {
+   --tilt: 45deg;
+   min-width: 5.15rem;
+   min-height: 4.6rem;
+   margin-block: .15rem 1.55rem;
+   padding: .55rem;
+   background: rgba(255, 253, 249, .92);
+}
+
+.flow-step--decision span {
+   display: block;
+   transform: rotate(-45deg);
+   font-size: .84rem;
+}
+
+.flow-solutions,
+.flow-process {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   gap: .45rem;
+}
+
+.flow-solutions {
+   margin-top: .25rem;
+}
+
+.flow-process {
+   margin-top: 1.7rem;
+}
+
+.flow-solutions span,
+.flow-process span {
+   display: grid;
+   min-width: 0;
+   min-height: 1.75rem;
+   place-items: center;
+   padding: .25rem;
+   border: 1.3px solid var(--line);
+   border-radius: .08rem;
+   background: rgba(255, 253, 249, .8);
+   font-family: var(--hand);
+   text-align: center;
+   font-size: clamp(.69rem, .85vw, .82rem);
+   font-weight: 600;
+   line-height: 1;
+   transform: rotate(-.8deg);
+}
+
+.flow-solutions span:nth-child(even),
+.flow-process span:nth-child(even) {
+   transform: rotate(.8deg);
+}
+
+/* --tilt permite animar a entrada sem perder a rotação característica de cada post-it. */
+.sticky {
+   position: absolute;
+   z-index: 3;
+   width: clamp(6.5rem, 19%, 8.4rem);
+   padding: .75rem;
+   box-shadow: 0 .5rem .8rem rgba(50, 39, 27, .12);
+   font-family: var(--hand);
+   font-size: clamp(.62rem, 1vw, .78rem);
+   line-height: 1.38;
+}
+
+.sticky strong {
+   font-weight: 700;
+}
+
+.sticky--goal {
+   --tilt: 4deg;
+   top: 17%;
+   right: -2.3rem;
+   background: var(--green-pale);
+   transform: rotate(var(--tilt));
+}
+
+.sticky--function {
+   --tilt: -4deg;
+   right: -2.75rem;
+   bottom: 18%;
+   background: var(--coral-pale);
+   transform: rotate(var(--tilt));
+}
+
+.sticky--function span {
+   display: block;
+   margin-top: .28rem;
+   text-align: right;
+   font-family: var(--sans);
+   font-size: 1.2rem;
+}
+
+.mobile-flow-details {
+   display: none;
+}
+
+/* 6. ANIMAÇÃO: a classe .is-animating só é adicionada por main.js uma vez por sessão. */
+html.is-animating .paper-flow .sticky,
+html.is-animating .paper-flow .flow-step,
+html.is-animating .paper-flow .flow-solutions,
+html.is-animating .paper-flow .flow-process {
+   opacity: 0;
+}
+
+html.is-animating .paper-flow .flow-line {
+   stroke-dasharray: 900;
+   stroke-dashoffset: 900;
+}
+
+html.is-animating .paper-flow .sticky {
+   animation: appear 360ms cubic-bezier(.2, .8, .2, 1) forwards;
+}
+
+html.is-animating .paper-flow .sticky--goal {
+   animation-delay: 80ms;
+}
+
+html.is-animating .paper-flow .sticky--function {
+   animation-delay: 220ms;
+}
+
+html.is-animating .paper-flow .flow-line {
+   animation: draw 660ms ease-out 430ms forwards;
+}
+
+html.is-animating .paper-flow .flow-step {
+   animation: appear 310ms ease-out forwards;
+}
+
+html.is-animating .paper-flow .flow-step--understand {
+   animation-delay: 950ms;
+}
+
+html.is-animating .paper-flow .flow-step--identify {
+   animation-delay: 1080ms;
+}
+
+html.is-animating .paper-flow .flow-step--decision {
+   animation-delay: 1210ms;
+}
+
+html.is-animating .paper-flow .flow-solutions {
+   animation: appear 300ms ease-out 1360ms forwards;
+}
+
+html.is-animating .paper-flow .flow-process {
+   animation: appear 300ms ease-out 1510ms forwards;
+}
+
+@keyframes appear {
+   from {
+      opacity: 0;
+      transform: translateY(7px) scale(.98) rotate(var(--tilt, 0deg));
+   }
+
+   to {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotate(var(--tilt, 0deg));
+   }
+}
+
+@keyframes paperAppear {
+
+   from {
+
+      opacity: 0;
+
+      transform:
+         translateY(12px) rotate(-1deg);
+
+   }
+
+   to {
+
+      opacity: 1;
+
+      transform:
+         translateY(0) rotate(-1deg);
+
+   }
+
+}
+
+@keyframes draw {
+   to {
+      stroke-dashoffset: 0;
+   }
+}
+
+/* 7. TABLET: o fluxograma vira a primeira peça da Hero, acima do texto. */
+@media (max-width:1050px) {
+
+   .desktop-nav,
+   .header-cta {
+      display: none;
+   }
+
+   .menu-toggle {
+      display: block;
+      margin-left: auto;
+   }
+
+   .site-header {
+      padding-top: 1rem;
+   }
+
+   .paper-flow {
+      display: none;
+   }
+
+   .paper-image {
+      display: block;
+   }
+
+   .hero {
+      padding-top: clamp(2rem, 5vw, 3rem);
+      background-image: url("../assets/img/hero-tablet1.webp");
+      background-position: center center;
+   }
+
+   .hero__inner {
+      grid-template-columns: minmax(0, 1fr);
+      gap: clamp(3.8rem, 7vw, 5.5rem);
+   }
+
+   .hero__visual {
+      order: -1;
+      width: min(100%, 42rem);
+      margin-inline: auto;
+   }
+
+   /* .paper-flow {
+      width: min(92%, 40rem, 71vh);
+      margin-inline: auto;
+   } */
+
+   .hero__copy {
+      max-width: 39rem;
+      margin-inline: auto;
+   }
+
+   .paper-image {
+
+      opacity: 0;
+
+      transform:
+         translateY(12px) rotate(-1deg);
+
+   }
+
+   html.is-mobile-hero .paper-image {
+
+      animation:
+         paperAppear .9s ease forwards;
+
+   }
+}
+
+@media (min-width:561px) and (max-width:720px) {
+
+   .paper-image {
+      display: block;
+      width: 100%;
+   }
+
+   .paper-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+   }
+
+    h1 {
+      font-size: clamp(2rem, 7vw, 2.85rem);
+      line-height: .98;
+   }
+
+}
+
+/* 8. MOBILE: mostra três etapas e deixa os detalhes completos por <details>. */
+@media (max-width:560px) {
+   :root {
+      --page-padding: 1.2rem;
+   }
+
+   .site-header {
+      padding-top: .85rem;
+   }
+
+   .site-header__inner {
+      min-height: 2.7rem;
+   }
+
+   .brand__monogram {
+      font-size: 1.5rem;
+   }
+
+   .brand__name {
+      font-size: .62rem;
+   }
+
+   .brand__name small {
+      font-size: .37rem;
+   }
+
+   .paper-flow {
+      display: none;
+   }
+
+   .paper-image {
+      width: 100%;
+      max-width: 540px;
+      margin-inline: auto;
+   }
+
+   .paper-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+   }
+
+   .hero {
+      padding-top: 1.75rem;
+      padding-bottom: 4rem;
+      background-image: url("../assets/img/hero-mobile1.webp");
+      background-position: center top;
+   }
+
+   .hero__inner {
+      gap: 3rem;
+   }
+
+   .hero__visual {
+      width: 100%;
+   }
+
+   /* .paper-flow {
+      width: 93%;
+      min-height: 25.5rem;
+      padding: 2.15rem 1.2rem 1rem;
+      transform: rotate(-.7deg);
+   }
+
+   .paper-flow::before {
+      width: 3.8rem;
+      height: 4.3rem;
+      left: -2.65rem;
+      top: 10%;
+   }
+
+   .paper-flow::after {
+      width: 5.5rem;
+      right: -1.5rem;
+      bottom: 1rem;
+   }
+
+   .paper-flow__tape {
+      left: 9%;
+   } */
+
+   .flow-title {
+      margin-bottom: .85rem;
+      font-size: 1rem;
+   }
+
+   .flow-lines {
+      inset: 4.4rem 1.2rem 1rem;
+      width: calc(100% - 2.4rem);
+      height: calc(100% - 5.4rem);
+   }
+
+   .flow-steps {
+      gap: .62rem;
+   }
+
+   .flow-step {
+      min-width: 8.8rem;
+      padding: .32rem .55rem;
+      font-size: .86rem;
+   }
+
+   .flow-step--decision {
+      min-width: 4.3rem;
+      min-height: 3.85rem;
+      margin-bottom: 0;
+   }
+
+   .flow-step--decision span {
+      font-size: .73rem;
+   }
+
+   .flow-solutions,
+   .flow-process {
+      display: none;
+   }
+
+   .mobile-flow-details {
+      display: block;
+      position: absolute;
+      right: .75rem;
+      bottom: .6rem;
+      left: .75rem;
+      color: var(--muted);
+      font-size: .54rem;
+   }
+
+   .mobile-flow-details summary {
+      color: var(--charcoal);
+      text-align: center;
+      font-family: var(--hand);
+      font-size: .84rem;
+      cursor: pointer;
+   }
+
+   .mobile-flow-details div {
+      padding-top: .35rem;
+      text-align: center;
+   }
+
+   .mobile-flow-details p {
+      margin: .12rem 0;
+   }
+
+   .sticky {
+      width: 5.4rem;
+      padding: .55rem;
+      font-size: .7rem;
+   }
+
+   .sticky--goal {
+      top: 14%;
+      right: -1rem;
+   }
+
+   .sticky--function {
+      display: none;
+   }
+
+   .hero__eyebrow {
+      margin-bottom: .7rem;
+      font-size: 1.25rem;
+   }
+
+   h1 {
+      font-size: clamp(2rem, 7vw, 2.85rem);
+      line-height: .98;
+   }
+
+   .hero__points {
+      gap: .7rem;
+      margin-top: 1.8rem;
+      font-size: .82rem;
+   }
+
+   .hero__actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin-top: 1.75rem;
+   }
+
+   .hero__actions .button {
+      width: 100%;
+   }
+
+   .paper-image {
+
+      opacity: 0;
+
+      transform:
+         translateY(12px) rotate(-1deg);
+
+   }
+
+   html.is-mobile-hero .paper-image {
+
+      animation:
+         paperAppear .9s ease forwards;
+
+   }
+}
+
+/* 9. MOVIMENTO REDUZIDO: revela tudo imediatamente e elimina transições. */
+@media (prefers-reduced-motion:reduce) {
+
+   *,
+   *::before,
+   *::after {
+      scroll-behavior: auto !important;
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
+   }
+
+   html.is-animating .paper-flow .sticky,
+   html.is-animating .paper-flow .flow-step,
+   html.is-animating .paper-flow .flow-solutions,
+   html.is-animating .paper-flow .flow-process {
+      opacity: 1;
+   }
+
+   html.is-animating .paper-flow .flow-line {
+      stroke-dasharray: none;
+      stroke-dashoffset: 0;
+   }
+}

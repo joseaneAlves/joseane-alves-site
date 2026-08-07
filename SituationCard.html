@@ -1,0 +1,67 @@
+<!--
+  ============================================================================
+  COMPONENTE: SituationCard
+  ============================================================================
+  Uso: duplique este bloco para cada situação (hoje são 4). Troque apenas:
+    - o <svg> do ícone (pasta components/icons/, já com currentColor)
+    - .situation-card__title
+    - .situation-card__text
+    - o texto e o href do .situation-card__link
+
+  POR QUE <details>/<summary> EM VEZ DE <article>:
+    É o mesmo elemento nativo que já usamos em .mobile-flow-details (Hero).
+    Ele já vem com toggle, teclado e leitor de tela funcionando sozinho —
+    sem isso, teríamos que reimplementar em JS o que o navegador já faz.
+    Só decidimos, via CSS, em qual breakpoint deixamos esse comportamento
+    "ligado":
+      - Desktop: o CSS ignora o atributo [open] e mantém o conteúdo sempre
+        visível — o card não vira accordion, só usa <details> como
+        contêiner semântico (ver SituationCard.css).
+      - Mobile: o CSS lê o [open] de verdade e anima a altura com
+        grid-template-rows. O clique no <summary> já abre/fecha nativamente;
+        nenhum JavaScript é necessário para o accordion funcionar.
+
+  Estrutura:
+    <details> → elemento raiz, recebe as classes de animação de entrada
+    <summary> → ícone + título + chevron (o "cabeçalho" clicável no mobile)
+    <div class="situation-card__content"> → texto + link (o que expande)
+
+  Acessibilidade:
+    - O ícone é decorativo (aria-hidden="true"); quem informa o sentido é
+      o <h3> dentro do <summary>.
+    - list-style/marker nativo é removido via CSS; o chevron .svg cumpre
+      esse papel visualmente, só aparece no mobile.
+  ============================================================================
+-->
+<details class="situation-card" style="--card-delay: 0ms;">
+  <summary class="situation-card__summary">
+    <span class="situation-card__icon-wrap">
+      <!-- icons/icon-globe.svg (inline aqui para permitir troca de cor via CSS) -->
+      <svg class="situation-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <circle cx="24" cy="24" r="15" stroke="currentColor" stroke-width="1.6"/>
+        <ellipse cx="24" cy="24" rx="6.2" ry="15" stroke="currentColor" stroke-width="1.6"/>
+        <line x1="9" y1="24" x2="39" y2="24" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M11.3 16.5C14.6 18.4 19.1 19.6 24 19.6C28.9 19.6 33.4 18.4 36.7 16.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M11.3 31.5C14.6 29.6 19.1 28.4 24 28.4C28.9 28.4 33.4 29.6 36.7 31.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </span>
+
+    <h3 class="situation-card__title">Meu negócio ainda não tem presença digital</h3>
+
+    <!-- Só aparece no mobile (ver media query); indica que a linha expande. -->
+    <svg class="situation-card__chevron" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </summary>
+
+  <div class="situation-card__content">
+    <div class="situation-card__content-inner">
+      <p class="situation-card__text">
+        Um site profissional que passa credibilidade e abre novas oportunidades.
+      </p>
+      <a class="situation-card__link" href="#contato">
+        Quero um site <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</details>

@@ -1,0 +1,145 @@
+/* ==========================================================================
+   SEÇÃO: Qual situação mais parece com a sua
+   Depende dos tokens de style.css (:root) e dos componentes:
+   components/SituationCard.css e components/PostIt.css devem ser
+   carregados junto (via <link> ou colados no style.css principal).
+   ========================================================================== */
+
+.situacao {
+   display: flex;
+   align-items: center;
+   /* 600px é o teto; em telas menores que isso a seção nunca fica espremida
+      porque volta a crescer com o conteúdo (min-height, não height fixo). */
+   min-height: min(600px, 60vh);
+   padding: clamp(3rem, 6vw, 5rem) 0;
+   background: var(--cream);
+}
+
+.situacao__inner {
+   width: 100%;
+}
+
+.situacao__eyebrow {
+   margin: 0 0 clamp(2rem, 4vw, 3rem);
+   color: var(--terracotta);
+   text-align: center;
+   text-transform: uppercase;
+   font-size: .78rem;
+   font-weight: 700;
+   letter-spacing: .12em;
+}
+
+.situacao__grid {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 1.75rem clamp(1.25rem, 2.6vw, 2.5rem);
+}
+
+/* --------------------------------------------------------------------------
+   Rodapé: seta + post-it à esquerda, CTA à direita — como no layout de
+   referência. Em telas estreitas, empilha e centraliza.
+   -------------------------------------------------------------------------- */
+.situacao__footer {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: center;
+   gap: 2rem;
+   margin-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.situacao__prompt {
+   display: flex;
+   align-items: flex-end;
+   gap: .5rem;
+}
+
+.situation-arrow {
+   flex-shrink: 0;
+   width: 2.5rem;
+   height: 3rem;
+   color: var(--muted);
+}
+
+/* Antes do JS rodar (ou sem JS), a seta já aparece inteira — a animação
+   de "desenho" só existe dentro de .situacao--animating. */
+.situacao--animating .situation-arrow__path {
+   stroke-dasharray: 120;
+   stroke-dashoffset: 120;
+}
+
+.situacao--animating .situation-arrow__path.is-drawn {
+   animation: draw-arrow 300ms ease-out forwards;
+}
+
+@keyframes draw-arrow {
+   to {
+      stroke-dashoffset: 0;
+   }
+}
+
+.situacao__cta {
+   flex-shrink: 0;
+}
+
+/* O botão só recebe fade — é o último elemento da sequência. */
+.situacao--animating .situacao__cta {
+   opacity: 0;
+}
+
+.situacao--animating .situacao__cta.is-visible {
+   animation: fade-in 200ms ease-out forwards;
+}
+
+@keyframes fade-in {
+   to {
+      opacity: 1;
+   }
+}
+
+@media (max-width: 720px) {
+   .situacao {
+      min-height: auto;
+   }
+
+   /* Os 4 <details> deixam de ser cards soltos e passam a compor uma
+      única lista (accordion) — a moldura mora aqui, no contêiner; cada
+      situation-card contribui só com sua borda inferior (ver
+      SituationCard.css). */
+   .situacao__grid {
+      flex-direction: column;
+      gap: 0;
+      margin: 15px;
+      border: 1px solid rgba(23, 32, 31, .1);
+      border-radius: var(--radiusCard);
+      overflow: hidden;
+      background: var(--paper);
+   }
+
+   .situacao__footer {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+   }
+
+   .situacao__prompt {
+      flex-direction: column;
+      align-items: center;
+   }
+
+   .situation-arrow {
+      transform: rotate(90deg);
+   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .situacao--animating .situation-arrow__path {
+      stroke-dasharray: none;
+      stroke-dashoffset: 0;
+   }
+
+   .situacao--animating .situacao__cta {
+      opacity: 1;
+   }
+}

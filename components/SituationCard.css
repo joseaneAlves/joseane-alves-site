@@ -1,0 +1,262 @@
+/* ==========================================================================
+   COMPONENTE: SituationCard
+   Depende dos tokens globais definidos em style.css (:root). Não redefine
+   cores/fontes — apenas consome var(--terracotta), var(--charcoal) etc.
+
+   O elemento raiz é um <details>. O acordeão do mobile é 100% nativo
+   (o navegador já abre/fecha ao clicar no <summary>); só decidimos aqui,
+   por breakpoint, se o CSS obedece ou ignora o atributo [open].
+   ========================================================================== */
+
+.situation-card {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   width: 280px;
+   height: 330px;
+   padding: 1rem 1.75rem;
+   border: 1px solid rgba(23, 32, 31, .08);
+   border-radius: var(--radiusCard);
+   background: var(--paper);
+   box-shadow: 0 .6rem 1.4rem rgba(54, 43, 31, .06);
+   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.situation-card:hover {
+   border-color: rgba(207, 93, 53, .28);
+   box-shadow: var(--shadow);
+   transform: translateY(-4px);
+}
+
+/* Reseta o marcador nativo do <summary> (a "setinha"/triângulo do navegador)
+   em todos os breakpoints — quem indica estado é o nosso chevron .svg. */
+.situation-card__summary {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   width: 100%;
+   list-style: none;
+   cursor: default;
+}
+
+.situation-card__summary::marker,
+.situation-card__summary::-webkit-details-marker {
+   display: none;
+}
+
+.situation-card__icon-wrap {
+   display: grid;
+   flex-shrink: 0;
+   width: 3.25rem;
+   height: 3.25rem;
+   place-items: center;
+   margin-bottom: 1.5rem;
+   border-radius: 50%;
+   background: var(--paper-warm);
+   color: var(--terracotta);
+}
+
+.situation-card__icon {
+   width: 1.7rem;
+   height: 1.7rem;
+}
+
+.situation-card__title {
+   margin: 0;
+   color: var(--charcoal);
+   font-size: 1.05rem;
+   font-weight: 600;
+   letter-spacing: -.02em;
+   line-height: 1.25;
+}
+
+/* Só existe visualmente no mobile — ver media query mais abaixo. */
+.situation-card__chevron {
+   display: none;
+   color: var(--terracotta);
+}
+
+/* --------------------------------------------------------------------------
+   DESKTOP (comportamento padrão, sem media query):
+   o conteúdo fica sempre visível, o card não se comporta como accordion.
+   Isso vale mesmo que o [open] mude por algum motivo (ex.: um clique
+   acidental de teclado no <summary>) — o CSS aqui simplesmente não lê o
+   atributo, então nada muda visualmente.
+   -------------------------------------------------------------------------- */
+.situation-card__content {
+   display: flex;
+   flex-direction: column;
+   flex-grow: 1;
+   margin-top: .75rem;
+}
+
+.situation-card__content-inner {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   flex-grow: 1;
+}
+
+.situation-card__text {
+   flex-grow: 1;
+   margin: 0 0 4rem;
+   color: var(--muted);
+   font-size: .85rem;
+   font-weight: 400;
+   line-height: 1.55;
+}
+
+.situation-card__link {
+   margin-top: auto;
+   display: inline-flex;
+   align-items: center;
+   /* gap: .4rem; */
+   color: var(--terracotta);
+   font-size: .85rem;
+   font-weight: 600;
+}
+
+.situation-card__link span {
+   transition: transform var(--transition);
+}
+
+.situation-card__link:hover span,
+.situation-card:hover .situation-card__link span {
+   transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   Estado inicial + animação de entrada (cascata dos 4 cards).
+   Só existe enquanto a seção tem a classe .situacao--animating (ver
+   section-situacao.js). Sem JS, os cards já nascem visíveis.
+   -------------------------------------------------------------------------- */
+.situacao--animating .situation-card {
+   opacity: 0;
+}
+
+.situacao--animating .situation-card.is-in-view {
+   animation: appear-card 300ms cubic-bezier(.2, .8, .2, 1) forwards;
+   animation-delay: var(--card-delay, 0ms);
+}
+
+@keyframes appear-card {
+   from {
+      opacity: 0;
+      transform: translateY(16px);
+   }
+
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+/* ==========================================================================
+   MOBILE: a lista de cards vira um accordion nativo.
+   .situacao__grid (o contêiner) ganha borda única + fundo, e cada card
+   perde a própria borda/sombra para virar uma linha dessa lista
+   (ver section-situacao.css para o contêiner).
+   ========================================================================== */
+@media (max-width: 720px) {
+   .situation-card {
+      width: 100%;
+      height: auto;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      border-bottom: 1px solid rgba(23, 32, 31, .1);
+      box-shadow: none;
+   }
+
+   .situation-card:last-child {
+      border-bottom: 0;
+   }
+
+   .situation-card:hover {
+      border-color: rgba(23, 32, 31, .1);
+      box-shadow: none;
+      transform: none;
+   }
+
+   /* Cabeçalho vira linha horizontal: ícone à esquerda, título no meio,
+      chevron à direita — é o "gatilho" nativo do <details>. */
+   .situation-card__summary {
+      flex-direction: row;
+      align-items: center;
+      gap: .85rem;
+      padding: 1rem 1.1rem;
+      cursor: pointer;
+   }
+
+   .situation-card__icon-wrap {
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-bottom: 0;
+   }
+
+   .situation-card__icon {
+      width: 1.3rem;
+      height: 1.3rem;
+   }
+
+   .situation-card__title {
+      flex-grow: 1;
+      font-size: .88rem;
+   }
+
+   .situation-card__chevron {
+      display: block;
+      flex-shrink: 0;
+      width: 1.1rem;
+      height: 1.1rem;
+      transition: transform var(--transition);
+   }
+
+   /* Aqui sim o CSS passa a obedecer o [open] de verdade — é o próprio
+      navegador quem alterna esse atributo ao clicar no <summary>. */
+   .situation-card[open] .situation-card__chevron {
+      transform: rotate(90deg);
+   }
+
+   /* A trava do "sempre visível" do desktop é substituída pelo acordeão:
+      grid-template-rows anima 0fr → 1fr, e o overflow:hidden do -inner é
+      o que de fato esconde o conteúdo colapsado. O HTML não vem com o
+      atributo [open] por padrão, então cada linha nasce fechada — o
+      próprio navegador adiciona [open] quando o visitante toca nela. */
+   .situation-card__content {
+      display: grid;
+      grid-template-rows: 0fr;
+      margin-top: 0;
+      transition: grid-template-rows 260ms ease;
+   }
+
+   .situation-card[open] .situation-card__content {
+      grid-template-rows: 1fr;
+   }
+
+   .situation-card__content-inner {
+      overflow: hidden;
+      padding: 0 1.1rem 1.1rem 3.6rem;
+   }
+
+   .situation-card__text {
+      font-size: .82rem;
+      margin-bottom: 1rem;
+   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .situacao--animating .situation-card {
+      opacity: 1;
+      animation: none;
+   }
+
+   .situation-card:hover {
+      transform: none;
+   }
+
+   .situation-card__content,
+   .situation-card__chevron {
+      transition: none;
+   }
+}

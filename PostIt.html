@@ -1,0 +1,37 @@
+<!--
+  ============================================================================
+  COMPONENTE: PostIt
+  ============================================================================
+  Uso: um post-it recebe uma frase de abertura (sempre visível) e uma
+  segunda linha que só aparece no hover/focus, como se a conversa
+  continuasse. Para reutilizar em outra seção, troque apenas os dois
+  textos e, se quiser, --tilt (a inclinação, em graus).
+
+  Entrada: fica invisível só quando a seção pai tem a classe
+  .situacao--animating (ver section-situacao.css/.js) — sem essa classe
+  (JS desabilitado, ou fora dessa seção), o post-it já nasce visível.
+
+  Por quê não pisca/pula: propositalmente não há keyframe de "bounce".
+  A única animação contínua é a transição suave no :hover (transform
+  scale + reveal da segunda linha), nada de loop automático — isso
+  cansa visualmente e tira a sensação de "bilhete real".
+
+  Acessibilidade:
+    - A segunda linha não é essencial para operar a página (é reforço de
+      tom), mas fica sempre no DOM — leitores de tela sempre a leem;
+      apenas o efeito visual é condicionado ao hover/focus.
+    - O componente é focável (tabindex 0) para que teclado e leitor de
+      tela também disparem a revelação da segunda linha.
+  ============================================================================
+-->
+<div class="post-it" style="--tilt: -3deg;" tabindex="0">
+  <p class="post-it__line post-it__line--main">
+    Ainda não sei por onde começar?
+  </p>
+  <p class="post-it__line post-it__line--reveal">
+    Tudo bem. Eu descubro isso junto com você.
+  </p>
+  <a class="post-it__link" href="#simulador">
+    Não sei qual solução escolher →
+  </a>
+</div>

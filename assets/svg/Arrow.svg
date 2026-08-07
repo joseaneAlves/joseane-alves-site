@@ -1,0 +1,17 @@
+<!--
+  Arrow.svg
+  Seta manuscrita que liga a pergunta ao post-it.
+  A classe .situation-arrow__path é o alvo da animação de "desenho"
+  (stroke-dasharray / stroke-dashoffset), disparada pelo section-situacao.js
+  depois que o último card termina de entrar.
+-->
+<svg class="situation-arrow" viewBox="0 0 60 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <path
+    class="situation-arrow__path"
+    d="M12 4C10 20 14 38 30 50C22 51 15 53 9 58M9 58C13.5 56.5 18 55.5 22.5 55.8M9 58C10.3 53.7 10.8 49.3 10.6 45"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
