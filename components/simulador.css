@@ -1,0 +1,671 @@
+/*
+============================================================
+SIMULADOR DE PROJETO
+============================================================
+
+A seção inicial apresenta dois caminhos lado a lado:
+
+- Coluna central: caminho guiado (fundo escuro, recomendado).
+  Pensado para a maioria, que ainda não sabe qual projeto
+  precisa. Abre o modal direto na etapa 1.
+
+- Coluna direita: escolha direta. Para quem já sabe o tipo
+  de projeto. Guarda a escolha e abre o modal também, mas
+  pulando a etapa de identificação de tipo.
+
+O modal concentra o diagnóstico e suas etapas seguintes.
+============================================================
+*/
+
+
+/* ==========================================================
+   SEÇÃO
+   ========================================================== */
+
+#simulador {
+    width: 100%;
+    padding: 80px 24px;
+}
+ 
+.simulador-container {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+ 
+    display: flex;
+    flex-direction: column;
+ 
+    background: #fff;
+ 
+    border: 1px solid #eee4dc;
+    border-radius: 18px;
+ 
+    overflow: hidden;
+}
+ 
+ 
+/* ==========================================================
+   CABEÇALHO — fora da divisão de colunas
+   ========================================================== */
+ 
+.simulador-cabecalho {
+    padding: 50px 50px 36px;
+    background: #fffaf6;
+    text-align: center;
+}
+ 
+.simulador-label {
+    margin-bottom: 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px; 
+    color: #c96b2c;
+}
+ 
+
+.simulador-cabecalho h2 {
+    max-width: none;
+    margin: auto 0;
+    font-size: clamp(28px, 2.4vw, 2.2em);
+    text-align: center;
+    line-height: 1.1;
+}
+
+
+ 
+.simulador-cabecalho h2 span {
+    color: #c96b2c;
+}
+ 
+.simulador-tempo {
+    
+    margin-top: 16px;
+    font-size: 12px;
+    line-height: 1.5;
+ 
+    color: #999;
+}
+ 
+ 
+/* ==========================================================
+   COLUNAS
+   ========================================================== */
+ 
+.simulador-colunas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+ 
+ 
+/* ==========================================================
+   COLUNA ESQUERDA — CAMINHO GUIADO (recomendado)
+   ========================================================== */
+ 
+.simulador-beneficios {
+    padding: 48px 50px;
+ 
+    display: flex;
+    flex-direction: column;
+ 
+    background: #17201f;
+}
+ 
+.simulador-beneficios .simulador-label {
+    color: #d98a5e;
+}
+ 
+.simulador-beneficios h3 {
+    max-width: 260px;
+ 
+    margin: 0 0 12px;
+ 
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.35;
+ 
+    color: #fff;
+}
+ 
+.beneficio-intro {
+    max-width: 280px;
+ 
+    margin: 0 0 28px;
+ 
+    font-size: 13px;
+    line-height: 1.6;
+ 
+    color: #b9b3ac;
+}
+ 
+.botao-iniciar {
+    width: fit-content;
+    margin-top: auto;
+    padding: 14px 28px;
+ 
+    border: 0;
+    border-radius: 6px;
+ 
+    background: #c96b2c;
+    color: #fff;
+ 
+    font-size: 12px;
+    font-weight: 600;
+ 
+    cursor: pointer;
+}
+ 
+ 
+/* ==========================================================
+   COLUNA DIREITA — ESCOLHA DIRETA
+   ========================================================== */
+ 
+.simulador-escolha {
+    position: relative;
+ 
+    padding: 48px 50px;
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+ 
+    border-left: 1px solid #eee4dc;
+}
+ 
+/* Divisor "ou" entre os dois caminhos */
+.simulador-escolha::before {
+    content: "ou";
+ 
+    position: absolute;
+    top: 50%;
+    left: -14px;
+    transform: translateY(-50%);
+ 
+    width: 28px;
+    height: 28px;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+    background: #fff;
+    border: 1px solid #eee4dc;
+    border-radius: 50%;
+ 
+    font-size: 11px;
+    color: #999;
+ 
+    z-index: 1;
+}
+ 
+.simulador-escolha h3 {
+    margin: 0 0 26px;
+ 
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+ 
+    color: #242424;
+}
+ 
+.opcoes-projeto {
+    display: grid;
+ 
+    grid-template-columns: repeat(5, 1fr);
+ 
+    gap: 10px;
+}
+ 
+.opcao-projeto {
+    position: relative;
+ 
+    cursor: pointer;
+}
+ 
+.opcao-projeto input {
+    position: absolute;
+ 
+    opacity: 0;
+}
+ 
+.opcao-conteudo {
+    min-height: 120px;
+ 
+    padding: 15px 8px;
+ 
+    display: flex;
+    flex-direction: column;
+ 
+    align-items: center;
+    justify-content: center;
+ 
+    text-align: center;
+ 
+    border: 1px solid #e4dbd4;
+    border-radius: 8px;
+ 
+    transition: 0.2s ease;
+}
+ 
+.opcao-conteudo:hover {
+    border-color: #c96b2c;
+    transform: translateY(-2px);
+}
+ 
+.opcao-projeto input:checked+.opcao-conteudo {
+    background: #fff4ec;
+    border-color: #c96b2c;
+}
+ 
+.opcao-icone {
+    margin-bottom: 12px;
+ 
+    font-size: 21px;
+    color: #c96b2c;
+}
+ 
+.opcao-conteudo strong {
+    font-size: 12px;
+}
+ 
+.opcao-conteudo small {
+    margin-top: 4px;
+ 
+    font-size: 10px;
+    color: #888;
+}
+ 
+ 
+/* ==========================================================
+   BOTÃO PRÓXIMO
+   ========================================================== */
+ 
+.botao-proximo {
+    width: 100%;
+    min-width: 0;
+ 
+    margin-top: 28px;
+    margin-left: 0;
+ 
+    padding: 15px 20px;
+ 
+    border: 0;
+    border-radius: 6px;
+ 
+    background: #c96b2c;
+    color: #fff;
+ 
+    font-size: 12px;
+    font-weight: 600;
+ 
+    cursor: pointer;
+}
+ 
+.botao-proximo span {
+    font-size: 17px;
+}
+ 
+ 
+/* ==========================================================
+   MODAL
+   ========================================================== */
+ 
+.modal-simulador {
+    position: fixed;
+ 
+    inset: 0;
+    z-index: 1000;
+ 
+    display: none;
+ 
+    align-items: center;
+    justify-content: center;
+ 
+    padding: 30px;
+ 
+    background: rgba(20, 25, 24, 0.55);
+}
+ 
+.modal-simulador.ativo {
+    display: flex;
+}
+ 
+.modal-conteudo {
+    position: relative;
+ 
+    width: min(1100px, 100%);
+    min-height: 600px;
+ 
+    display: grid;
+    grid-template-columns: 0.85fr 1.5fr;
+ 
+    background: #fff;
+ 
+    border-radius: 18px;
+ 
+    overflow: hidden;
+ 
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+}
+ 
+ 
+/* ==========================================================
+   FECHAR MODAL
+   ========================================================== */
+ 
+.fechar-simulador {
+    position: absolute;
+ 
+    top: 20px;
+    right: 22px;
+ 
+    z-index: 2;
+ 
+    width: 35px;
+    height: 35px;
+ 
+    border: 0;
+    border-radius: 50%;
+ 
+    background: #f5eee9;
+    color: #333;
+ 
+    font-size: 20px;
+ 
+    cursor: pointer;
+}
+ 
+ 
+/* ==========================================================
+   INTRO DO MODAL
+   ========================================================== */
+ 
+.modal-intro {
+    padding: 55px 38px;
+ 
+    background: #fffaf6;
+}
+ 
+.modal-intro h2 {
+    max-width: 280px;
+ 
+    margin: 0;
+ 
+    font-size: 34px;
+    line-height: 1.1;
+}
+ 
+.modal-intro h2 span {
+    color: #c96b2c;
+}
+ 
+.modal-etapas {
+    padding: 0;
+    margin: 55px 0 0;
+ 
+    list-style: none;
+}
+ 
+.modal-etapas li {
+    display: flex;
+    gap: 14px;
+ 
+    margin-bottom: 20px;
+ 
+    font-size: 12px;
+ 
+    color: #999;
+}
+ 
+.modal-etapas li span:first-child {
+    font-weight: 700;
+}
+ 
+.modal-etapas li.ativa {
+    color: #333;
+}
+ 
+.modal-etapas li.ativa span:first-child {
+    color: #c96b2c;
+}
+ 
+ 
+/* ==========================================================
+   PERGUNTAS
+   ========================================================== */
+ 
+.modal-perguntas {
+    padding: 55px 45px;
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+ 
+.indicador-etapa {
+    margin-bottom: 15px;
+}
+ 
+.indicador-etapa span {
+    width: 32px;
+    height: 32px;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+    border-radius: 50%;
+ 
+    background: #f4e4d8;
+    color: #c96b2c;
+ 
+    font-size: 11px;
+    font-weight: 700;
+}
+ 
+.etapa {
+    display: none;
+}
+ 
+#etapa1 {
+    display: block;
+}
+ 
+.etapa-cabecalho h3 {
+    margin: 0 0 28px;
+ 
+    font-size: 26px;
+    line-height: 1.2;
+}
+ 
+.opcoes {
+    display: grid;
+    gap: 10px;
+}
+ 
+.opcao-radio {
+    padding: 14px 16px;
+ 
+    display: flex;
+    align-items: center;
+ 
+    border: 1px solid #e4dbd4;
+    border-radius: 7px;
+ 
+    cursor: pointer;
+ 
+    font-size: 12px;
+ 
+    transition: 0.2s ease;
+}
+ 
+.opcao-radio:hover {
+    border-color: #c96b2c;
+}
+ 
+.opcao-radio input {
+    margin-right: 12px;
+ 
+    accent-color: #c96b2c;
+}
+ 
+ 
+/* ==========================================================
+   NAVEGAÇÃO DO MODAL
+   ========================================================== */
+ 
+.modal-navegacao {
+    margin-top: 28px;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+ 
+.modal-navegacao .botao-proximo {
+    margin: 0;
+}
+ 
+.botao-voltar {
+    padding: 12px;
+ 
+    border: 0;
+    background: transparent;
+ 
+    color: #777;
+ 
+    cursor: pointer;
+}
+ 
+ 
+/* ==========================================================
+   RESULTADO
+   ========================================================== */
+ 
+.resultado-final {
+    display: none;
+ 
+    text-align: center;
+}
+ 
+.resultado-icone {
+    width: 45px;
+    height: 45px;
+ 
+    margin: 0 auto 15px;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+    border-radius: 50%;
+ 
+    background: #f4e4d8;
+    color: #c96b2c;
+}
+ 
+.resultado-final h3 {
+    margin: 0 auto 12px;
+ 
+    max-width: 450px;
+ 
+    font-size: 26px;
+}
+ 
+.resultado-final p {
+    max-width: 480px;
+    margin: 0 auto;
+ 
+    font-size: 13px;
+    line-height: 1.6;
+ 
+    color: #777;
+}
+ 
+ 
+/* ==========================================================
+   RESPONSIVIDADE
+   ========================================================== */
+ 
+@media (max-width: 1000px) {
+ 
+    .simulador-colunas {
+        display: block;
+    }
+ 
+    .simulador-escolha {
+        border-left: none;
+        border-top: 1px solid #eee4dc;
+    }
+ 
+    .simulador-escolha::before {
+        display: none;
+    }
+ 
+    .opcoes-projeto {
+        grid-template-columns: repeat(3, 1fr);
+    }
+ 
+}
+ 
+ 
+@media (max-width: 700px) {
+ 
+    #simulador {
+        padding: 30px 15px;
+    }
+ 
+    .simulador-cabecalho {
+        padding: 30px 25px 20px;
+    }
+ 
+    .simulador-cabecalho h2 {
+        max-width: none;
+        font-size: 34px;
+    }
+ 
+    .simulador-tempo {
+        display: none;
+    }
+ 
+    .simulador-beneficios,
+    .simulador-escolha {
+        padding: 30px 25px;
+    }
+ 
+    .simulador-escolha h3,
+    .simulador-beneficios h3 {
+        font-size: 22px;
+    }
+ 
+    .opcoes-projeto {
+        grid-template-columns: repeat(2, 1fr);
+    }
+ 
+    .modal-simulador {
+        padding: 10px;
+    }
+ 
+    .modal-conteudo {
+        min-height: 90vh;
+ 
+        display: block;
+ 
+        overflow-y: auto;
+    }
+ 
+    .modal-intro {
+        padding: 35px 25px 20px;
+    }
+ 
+    .modal-intro h2 {
+        font-size: 27px;
+    }
+ 
+    .modal-etapas {
+        display: none;
+    }
+ 
+    .modal-perguntas {
+        padding: 25px;
+    }
+ 
+}
