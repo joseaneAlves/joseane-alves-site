@@ -21,6 +21,9 @@
    --transition: 180ms ease;
    --sans: "Poppins", Arial, sans-serif;
    --hand: "Caveat", "Segoe Print", cursive;
+   --midnight: #16222f;
+   --midnight-line: rgba(255, 255, 255, .16);
+   --midnight-ink: #ffffff;
 }
 
 /* MAPA DE CLASSES
@@ -787,7 +790,7 @@ html.is-animating .paper-flow .flow-process {
       height: auto;
    }
 
-    h1 {
+   h1 {
       font-size: clamp(2rem, 7vw, 2.85rem);
       line-height: .98;
    }

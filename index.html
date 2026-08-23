@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="components/section-situacao.css">
   <link rel="stylesheet" href="components/simulador.css">
   <link rel="stylesheet" href="components/SituationCard.css">
+  <link rel="stylesheet" href="components/section-como-funciona.css">
 </head>
 
 <body>
@@ -342,8 +343,153 @@
 
       </div>
     </section>
-    <section class="section" id="comoEuTrabalho" aria-labelledby="comoEuTrabalho-titulo">
+    <!-- ============================================================
+     SEÇÃO: Como eu trabalho
+     Fundo: Dark Midnight Navy — a "virada tecnológica" da alternância
+     clean/dark combinada com você.
+     Depende de: components/section-como-funciona.css
+                 components/section-como-funciona.js
+     Token NOVO a somar em :root (bloco 1 do style.css): --midnight,
+     --midnight-line, --midnight-ink. Ver comentário no topo do CSS.
+     ============================================================ -->
+    <section class="como-funciona" id="como-funciona" aria-labelledby="como-funciona-titulo">
+      <div class="container como-funciona__inner">
 
+        <header class="como-funciona__header">
+          <p class="como-funciona__eyebrow">Como eu trabalho</p>
+          <h2 class="como-funciona__titulo" id="como-funciona-titulo">
+            Um processo claro, <em>estratégico</em> e colaborativo
+          </h2>
+        </header>
+
+        <ol class="como-funciona__etapas" data-como-funciona-etapas>
+
+          <!-- Etapa 01 — Entender -->
+          <li class="como-funciona__etapa" data-etapa="1" style="--etapa-delay: 0ms;">
+            <span class="como-funciona__numero">01.</span>
+            <span class="como-funciona__icone-wrap">
+              <svg class="como-funciona__icone" viewBox="0 0 48 48" fill="none" stroke="var(--terracotta)"
+                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="8" y="10" width="32" height="20" rx="6" />
+                <path d="M16 30l-4 6v-6" />
+                <circle cx="18" cy="20" r="1.4" fill="var(--terracotta)" stroke="none" />
+                <circle cx="24" cy="20" r="1.4" fill="var(--terracotta)" stroke="none" />
+                <circle cx="30" cy="20" r="1.4" fill="var(--terracotta)" stroke="none" />
+              </svg>
+            </span>
+            <h3 class="como-funciona__etapa-titulo">Entender</h3>
+            <p class="como-funciona__etapa-texto">Mergulho no seu negócio, objetivos e desafios. Faço as perguntas
+              certas.</p>
+          </li>
+
+          <li class="como-funciona__conector" aria-hidden="true" style="--etapa-delay: 80ms;">
+            <svg viewBox="0 0 64 24" preserveAspectRatio="none">
+              <line x1="2" y1="12" x2="50" y2="12" />
+              <path d="M44 6l8 6-8 6" />
+            </svg>
+          </li>
+
+          <!-- Etapa 02 — Questionar -->
+          <li class="como-funciona__etapa" data-etapa="2" style="--etapa-delay: 160ms;">
+            <span class="como-funciona__numero">02.</span>
+            <span class="como-funciona__icone-wrap">
+              <svg class="como-funciona__icone" viewBox="0 0 48 48" fill="none" stroke="var(--terracotta)"
+                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="24" cy="24" r="16" />
+                <path d="M19 19a5 5 0 1 1 7.5 4.3c-1.8 1-2.5 1.9-2.5 3.7" />
+                <circle cx="24" cy="33" r="0.9" fill="var(--terracotta)" stroke="none" />
+              </svg>
+            </span>
+            <h3 class="como-funciona__etapa-titulo">Questionar</h3>
+            <p class="como-funciona__etapa-texto">Analiso o contexto e identifico o que realmente precisa ser resolvido.
+            </p>
+          </li>
+
+          <li class="como-funciona__conector" aria-hidden="true" style="--etapa-delay: 240ms;">
+            <svg viewBox="0 0 64 24" preserveAspectRatio="none">
+              <line x1="2" y1="12" x2="50" y2="12" />
+              <path d="M44 6l8 6-8 6" />
+            </svg>
+          </li>
+
+          <!-- Etapa 03 — Planejar -->
+          <li class="como-funciona__etapa" data-etapa="3" style="--etapa-delay: 320ms;">
+            <span class="como-funciona__numero">03.</span>
+            <span class="como-funciona__icone-wrap">
+              <svg class="como-funciona__icone" viewBox="0 0 48 48" fill="none" stroke="var(--terracotta)"
+                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="8" y="10" width="32" height="28" rx="4" />
+                <line x1="8" y1="18" x2="40" y2="18" />
+                <line x1="16" y1="6" x2="16" y2="14" />
+                <line x1="32" y1="6" x2="32" y2="14" />
+                <circle cx="16" cy="26" r="1.3" fill="var(--terracotta)" stroke="none" />
+                <circle cx="24" cy="26" r="1.3" fill="var(--terracotta)" stroke="none" />
+                <circle cx="32" cy="26" r="1.3" fill="var(--terracotta)" stroke="none" />
+                <circle cx="16" cy="32" r="1.3" fill="var(--terracotta)" stroke="none" />
+                <circle cx="24" cy="32" r="1.3" fill="var(--terracotta)" stroke="none" />
+              </svg>
+            </span>
+            <h3 class="como-funciona__etapa-titulo">Planejar</h3>
+            <p class="como-funciona__etapa-texto">Defino a melhor estratégia, estrutura e funcionalidades para o seu
+              projeto.</p>
+          </li>
+
+          <li class="como-funciona__conector" aria-hidden="true" style="--etapa-delay: 400ms;">
+            <svg viewBox="0 0 64 24" preserveAspectRatio="none">
+              <line x1="2" y1="12" x2="50" y2="12" />
+              <path d="M44 6l8 6-8 6" />
+            </svg>
+          </li>
+
+          <!-- Etapa 04 — Desenvolver -->
+          <li class="como-funciona__etapa" data-etapa="4" style="--etapa-delay: 480ms;">
+            <span class="como-funciona__numero">04.</span>
+            <span class="como-funciona__icone-wrap">
+              <svg class="como-funciona__icone" viewBox="0 0 48 48" fill="none" stroke="var(--terracotta)"
+                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="6" y="10" width="36" height="24" rx="3" />
+                <line x1="18" y1="40" x2="30" y2="40" />
+                <line x1="24" y1="34" x2="24" y2="40" />
+                <path d="M18 19l-4 4 4 4" />
+                <path d="M30 19l4 4-4 4" />
+              </svg>
+            </span>
+            <h3 class="como-funciona__etapa-titulo">Desenvolver</h3>
+            <p class="como-funciona__etapa-texto">Design, desenvolvimento e testes com foco em qualidade e performance.
+            </p>
+          </li>
+
+          <li class="como-funciona__conector" aria-hidden="true" style="--etapa-delay: 560ms;">
+            <svg viewBox="0 0 64 24" preserveAspectRatio="none">
+              <line x1="2" y1="12" x2="50" y2="12" />
+              <path d="M44 6l8 6-8 6" />
+            </svg>
+          </li>
+
+          <!-- Etapa 05 — Evoluir -->
+          <li class="como-funciona__etapa" data-etapa="5" style="--etapa-delay: 640ms;">
+            <span class="como-funciona__numero">05.</span>
+            <span class="como-funciona__icone-wrap">
+              <svg class="como-funciona__icone" viewBox="0 0 48 48" fill="none" stroke="var(--terracotta)"
+                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 32l10-10 8 8 14-16" />
+                <path d="M32 12h8v8" />
+                <circle cx="8" cy="32" r="1.4" fill="var(--terracotta)" stroke="none" />
+                <circle cx="18" cy="22" r="1.4" fill="var(--terracotta)" stroke="none" />
+                <circle cx="26" cy="30" r="1.4" fill="var(--terracotta)" stroke="none" />
+              </svg>
+            </span>
+            <h3 class="como-funciona__etapa-titulo">Evoluir</h3>
+            <p class="como-funciona__etapa-texto">Acompanho, entrego, suporto e proponho melhorias contínuas.</p>
+          </li>
+
+        </ol>
+
+        <a class="como-funciona__cta" href="#processo-detalhado" style="--etapa-delay: 760ms;">
+          Ver todos os detalhes do processo <span aria-hidden="true">→</span>
+        </a>
+
+      </div>
     </section>
     <section class="quemSouEu" id="quemSouEu" aria-labelledby="quemSouEu-titulo">
 
@@ -357,277 +503,277 @@
      já sabe o tipo de projeto).
      ============================================================ -->
 
-<section id="simulador">
- 
-  <div class="simulador-container">
- 
-    <!-- CABEÇALHO: fora da divisão de colunas, comanda a seção inteira -->
-    <div class="simulador-cabecalho">
- 
-      <span class="simulador-label">
-        SIMULE SEU PROJETO
-      </span>
- 
-      <h2>
-        Qual o
-        próximo
-        passo <span>do seu negócio?</span>
-      </h2>
- 
-      <p class="simulador-tempo">
-        Em menos de 2 minutos, receba uma
-        análise inicial do seu projeto.
-      </p>
- 
-    </div>
- 
- 
-    <!-- COLUNAS: só se dividem depois do título -->
-    <div class="simulador-colunas">
- 
-      <!-- CAMINHO GUIADO (recomendado) -->
-      <aside class="simulador-beneficios">
- 
-        <span class="simulador-label">
-          RECOMENDADO
-        </span>
- 
-        <h3>
-          Não sabe por onde
-          começar?
-        </h3>
- 
-        <p class="beneficio-intro">
-          Responda poucas perguntas e receba
-          uma sugestão personalizada de solução
-          e investimento.
-        </p>
- 
-        <button type="button" id="abrirSimulador" class="botao-iniciar">
-          Começar simulação guiada
-          <span aria-hidden="true">→</span>
-        </button>
- 
-      </aside>
- 
- 
-      <!-- ESCOLHA DIRETA -->
-      <div class="simulador-escolha">
- 
-        <span class="simulador-label">
-          JÁ SEI O QUE PRECISO
-        </span>
- 
-        <h3>
-          Escolha o tipo de projeto
-        </h3>
- 
-        <div class="opcoes-projeto">
- 
-          <label class="opcao-projeto">
- 
-            <input type="checkbox" name="projeto" value="site">
- 
-            <span class="opcao-conteudo">
- 
-              <span class="opcao-icone">
-                <svg class="situation-card__icon" width="16px" height="16px" viewBox="0 0 24 24" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <path
-                      d="M21 12C21 16.9706 16.9706 21 12 21M21 12C21 7.02944 16.9706 3 12 3M21 12C21 13.6569 16.9706 15 12 15C7.02944 15 3 13.6569 3 12M21 12C21 10.3431 16.9706 9 12 9C7.02944 9 3 10.3431 3 12M12 21C7.02944 21 3 16.9706 3 12M12 21C10.3431 21 9 16.9706 9 12C9 7.02944 10.3431 3 12 3M12 21C13.6569 21 15 16.9706 15 12C15 7.02944 13.6569 3 12 3M3 12C3 7.02944 7.02944 3 12 3"
-                      stroke="#cf5d35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </g>
-                </svg>
- 
-              </span>
- 
-              <strong>Site</strong>
- 
-              <small>
-                Institucional
-              </small>
- 
-            </span>
- 
-          </label>
- 
- 
-          <label class="opcao-projeto">
- 
-            <input type="checkbox" name="projeto" value="landing-page">
- 
-            <span class="opcao-conteudo">
- 
-              <span class="opcao-icone"><svg class="situation-card__icon" fill="#cf5d35" width="16px" height="16px"
-                  viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <path
-                      d="M2.67 10.73a3.52 3.52 0 0 0-.94 1.93 5 5 0 0 0-.07 1.1v.58h.8a5.05 5.05 0 0 0 .88-.08 3.46 3.46 0 0 0 1.93-.94 1.76 1.76 0 0 0-.14-2.48 1.76 1.76 0 0 0-2.46-.11zm1.74 1.73a2.26 2.26 0 0 1-1.26.6h-.22v-.22a2.26 2.26 0 0 1 .6-1.26.36.36 0 0 1 .24-.08.67.67 0 0 1 .47.22.54.54 0 0 1 .17.74zM14.65 2.24a.91.91 0 0 0-.89-.89A8.75 8.75 0 0 0 7.27 3.5L5.64 5.4l-2.4-.5a1 1 0 0 0-.92.27l-.68.68a1 1 0 0 0-.28.81 1 1 0 0 0 .45.74l2.06 1.32.13.08 3.2 3.25.08.08 1.32 2.06a1 1 0 0 0 .74.45h.11a1 1 0 0 0 .7-.29l.68-.68a1 1 0 0 0 .27-.92l-.5-2.39 1.84-1.58a8.79 8.79 0 0 0 2.21-6.54zM3.11 6.15l1.32.28-.64.75-1-.67zm6.38 7.1-.67-1 .75-.64.28 1.32zm2.39-5.11.18.17zm-.28-.28L7.92 11 5 8.08 8.14 4.4a7.44 7.44 0 0 1 5.26-1.8 7.48 7.48 0 0 1-1.8 5.26z">
-                    </path>
-                    <path d="M11.13 6.63a1.19 1.19 0 0 0-.06-1.7 1.16 1.16 0 1 0-1.64 1.63 1.2 1.2 0 0 0 1.7.07z">
-                    </path>
-                  </g>
-                </svg></span>
- 
-              <strong>Landing</strong>
- 
-              <small>
-                Page
-              </small>
- 
-            </span>
- 
-          </label>
- 
- 
-          <label class="opcao-projeto">
- 
-            <input type="checkbox" name="projeto" value="sistema">
- 
-            <span class="opcao-conteudo">
- 
-              <span class="opcao-icone"><svg class="situation-card__icon" width="16px" height="16px"
-                  viewBox="0 0 24 24" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="none"
-                  stroke="none">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <defs>
-                      <style>
-                        .cls-1 {
-                          fill: none;
-                          stroke: #cf5d35;
-                          stroke-miterlimit: 10;
-                          stroke-width: 1.91px;
-                        }
-                      </style>
-                    </defs>
-                    <circle class="cls-1" cx="12" cy="10.07" r="2.86"></circle>
-                    <line class="cls-1" x1="12" y1="7.2" x2="12" y2="5.3"></line>
-                    <line class="cls-1" x1="12" y1="7.2" x2="12" y2="5.3"></line>
-                    <line class="cls-1" x1="12" y1="14.84" x2="12" y2="12.93"></line>
-                    <line class="cls-1" x1="9.52" y1="8.64" x2="7.87" y2="7.68"></line>
-                    <line class="cls-1" x1="9.52" y1="8.64" x2="7.87" y2="7.68"></line>
-                    <line class="cls-1" x1="16.13" y1="12.45" x2="14.48" y2="11.5"></line>
-                    <line class="cls-1" x1="14.48" y1="8.64" x2="16.13" y2="7.68"></line>
-                    <line class="cls-1" x1="14.48" y1="8.64" x2="16.13" y2="7.68"></line>
-                    <line class="cls-1" x1="7.87" y1="12.45" x2="9.52" y2="11.5"></line>
-                    <path class="cls-1"
-                      d="M1.5,5.3v9.54a3.82,3.82,0,0,0,3.82,3.82H7.23v2.86L13,18.66h5.73a3.82,3.82,0,0,0,3.82-3.82V5.3a3.82,3.82,0,0,0-3.82-3.82H5.32A3.82,3.82,0,0,0,1.5,5.3Z">
-                    </path>
-                  </g>
-                </svg></span>
- 
-              <strong>Sistema</strong>
- 
-              <small>
-                Web
-              </small>
- 
-            </span>
- 
-          </label>
- 
- 
-          <label class="opcao-projeto">
- 
-            <input type="checkbox" name="projeto" value="pwa">
- 
-            <span class="opcao-conteudo">
- 
-              <span class="opcao-icone"><svg class="situation-card__icon" width="16px" height="16px"
-                  viewBox="0 0 24 24" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="none"
-                  stroke="none">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <defs>
-                      <style>
-                        .cls-1 {
-                          fill: none;
-                          stroke: #cf5d35;
-                          stroke-miterlimit: 10;
-                          stroke-width: 1.91px;
-                        }
-                      </style>
-                    </defs>
-                    <circle class="cls-1" cx="12" cy="10.07" r="2.86"></circle>
-                    <line class="cls-1" x1="12" y1="7.2" x2="12" y2="5.3"></line>
-                    <line class="cls-1" x1="12" y1="7.2" x2="12" y2="5.3"></line>
-                    <line class="cls-1" x1="12" y1="14.84" x2="12" y2="12.93"></line>
-                    <line class="cls-1" x1="9.52" y1="8.64" x2="7.87" y2="7.68"></line>
-                    <line class="cls-1" x1="9.52" y1="8.64" x2="7.87" y2="7.68"></line>
-                    <line class="cls-1" x1="16.13" y1="12.45" x2="14.48" y2="11.5"></line>
-                    <line class="cls-1" x1="14.48" y1="8.64" x2="16.13" y2="7.68"></line>
-                    <line class="cls-1" x1="14.48" y1="8.64" x2="16.13" y2="7.68"></line>
-                    <line class="cls-1" x1="7.87" y1="12.45" x2="9.52" y2="11.5"></line>
-                    <path class="cls-1"
-                      d="M1.5,5.3v9.54a3.82,3.82,0,0,0,3.82,3.82H7.23v2.86L13,18.66h5.73a3.82,3.82,0,0,0,3.82-3.82V5.3a3.82,3.82,0,0,0-3.82-3.82H5.32A3.82,3.82,0,0,0,1.5,5.3Z">
-                    </path>
-                  </g>
-                </svg></span>
- 
-              <strong>PWA /</strong>
- 
-              <small>
-                Aplicação
-              </small>
- 
-            </span>
- 
-          </label>
- 
- 
-          <label class="opcao-projeto">
- 
-            <input type="checkbox" name="projeto" value="blog">
- 
-            <span class="opcao-conteudo">
- 
-              <span class="opcao-icone"><svg class="situation-card__icon" width="16px" height="16px"
-                  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <path
-                      d="M21 12C21 16.9706 16.9706 21 12 21M21 12C21 7.02944 16.9706 3 12 3M21 12C21 13.6569 16.9706 15 12 15C7.02944 15 3 13.6569 3 12M21 12C21 10.3431 16.9706 9 12 9C7.02944 9 3 10.3431 3 12M12 21C7.02944 21 3 16.9706 3 12M12 21C10.3431 21 9 16.9706 9 12C9 7.02944 10.3431 3 12 3M12 21C13.6569 21 15 16.9706 15 12C15 7.02944 13.6569 3 12 3M3 12C3 7.02944 7.02944 3 12 3"
-                      stroke="#cf5d35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </g>
-                </svg></span>
- 
-              <strong>Blog</strong>
- 
-              <small>
-                Conteúdo
-              </small>
- 
-            </span>
- 
-          </label>
- 
+    <section id="simulador">
+
+      <div class="simulador-container">
+
+        <!-- CABEÇALHO: fora da divisão de colunas, comanda a seção inteira -->
+        <div class="simulador-cabecalho">
+
+          <span class="simulador-label">
+            SIMULE SEU PROJETO
+          </span>
+
+          <h2>
+            Qual o
+            próximo
+            passo <span>do seu negócio?</span>
+          </h2>
+
+          <p class="simulador-tempo">
+            Em menos de 2 minutos, receba uma
+            análise inicial do seu projeto.
+          </p>
+
         </div>
- 
- 
-        <button type="button" id="proximoProjeto" class="botao-proximo">
- 
-          Próximo passo
- 
-          <span>→</span>
- 
-        </button>
- 
+
+
+        <!-- COLUNAS: só se dividem depois do título -->
+        <div class="simulador-colunas">
+
+          <!-- CAMINHO GUIADO (recomendado) -->
+          <aside class="simulador-beneficios">
+
+            <span class="simulador-label">
+              RECOMENDADO
+            </span>
+
+            <h3>
+              Não sabe por onde
+              começar?
+            </h3>
+
+            <p class="beneficio-intro">
+              Responda poucas perguntas e receba
+              uma sugestão personalizada de solução
+              e investimento.
+            </p>
+
+            <button type="button" id="abrirSimulador" class="botao-iniciar">
+              Começar simulação guiada
+              <span aria-hidden="true">→</span>
+            </button>
+
+          </aside>
+
+
+          <!-- ESCOLHA DIRETA -->
+          <div class="simulador-escolha">
+
+            <span class="simulador-label">
+              JÁ SEI O QUE PRECISO
+            </span>
+
+            <h3>
+              Escolha o tipo de projeto
+            </h3>
+
+            <div class="opcoes-projeto">
+
+              <label class="opcao-projeto">
+
+                <input type="checkbox" name="projeto" value="site">
+
+                <span class="opcao-conteudo">
+
+                  <span class="opcao-icone">
+                    <svg class="situation-card__icon" width="16px" height="16px" viewBox="0 0 24 24" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path
+                          d="M21 12C21 16.9706 16.9706 21 12 21M21 12C21 7.02944 16.9706 3 12 3M21 12C21 13.6569 16.9706 15 12 15C7.02944 15 3 13.6569 3 12M21 12C21 10.3431 16.9706 9 12 9C7.02944 9 3 10.3431 3 12M12 21C7.02944 21 3 16.9706 3 12M12 21C10.3431 21 9 16.9706 9 12C9 7.02944 10.3431 3 12 3M12 21C13.6569 21 15 16.9706 15 12C15 7.02944 13.6569 3 12 3M3 12C3 7.02944 7.02944 3 12 3"
+                          stroke="#cf5d35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </g>
+                    </svg>
+
+                  </span>
+
+                  <strong>Site</strong>
+
+                  <small>
+                    Institucional
+                  </small>
+
+                </span>
+
+              </label>
+
+
+              <label class="opcao-projeto">
+
+                <input type="checkbox" name="projeto" value="landing-page">
+
+                <span class="opcao-conteudo">
+
+                  <span class="opcao-icone"><svg class="situation-card__icon" fill="#cf5d35" width="16px" height="16px"
+                      viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path
+                          d="M2.67 10.73a3.52 3.52 0 0 0-.94 1.93 5 5 0 0 0-.07 1.1v.58h.8a5.05 5.05 0 0 0 .88-.08 3.46 3.46 0 0 0 1.93-.94 1.76 1.76 0 0 0-.14-2.48 1.76 1.76 0 0 0-2.46-.11zm1.74 1.73a2.26 2.26 0 0 1-1.26.6h-.22v-.22a2.26 2.26 0 0 1 .6-1.26.36.36 0 0 1 .24-.08.67.67 0 0 1 .47.22.54.54 0 0 1 .17.74zM14.65 2.24a.91.91 0 0 0-.89-.89A8.75 8.75 0 0 0 7.27 3.5L5.64 5.4l-2.4-.5a1 1 0 0 0-.92.27l-.68.68a1 1 0 0 0-.28.81 1 1 0 0 0 .45.74l2.06 1.32.13.08 3.2 3.25.08.08 1.32 2.06a1 1 0 0 0 .74.45h.11a1 1 0 0 0 .7-.29l.68-.68a1 1 0 0 0 .27-.92l-.5-2.39 1.84-1.58a8.79 8.79 0 0 0 2.21-6.54zM3.11 6.15l1.32.28-.64.75-1-.67zm6.38 7.1-.67-1 .75-.64.28 1.32zm2.39-5.11.18.17zm-.28-.28L7.92 11 5 8.08 8.14 4.4a7.44 7.44 0 0 1 5.26-1.8 7.48 7.48 0 0 1-1.8 5.26z">
+                        </path>
+                        <path d="M11.13 6.63a1.19 1.19 0 0 0-.06-1.7 1.16 1.16 0 1 0-1.64 1.63 1.2 1.2 0 0 0 1.7.07z">
+                        </path>
+                      </g>
+                    </svg></span>
+
+                  <strong>Landing</strong>
+
+                  <small>
+                    Page
+                  </small>
+
+                </span>
+
+              </label>
+
+
+              <label class="opcao-projeto">
+
+                <input type="checkbox" name="projeto" value="sistema">
+
+                <span class="opcao-conteudo">
+
+                  <span class="opcao-icone"><svg class="situation-card__icon" width="16px" height="16px"
+                      viewBox="0 0 24 24" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                      fill="none" stroke="none">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <defs>
+                          <style>
+                            .cls-1 {
+                              fill: none;
+                              stroke: #cf5d35;
+                              stroke-miterlimit: 10;
+                              stroke-width: 1.91px;
+                            }
+                          </style>
+                        </defs>
+                        <circle class="cls-1" cx="12" cy="10.07" r="2.86"></circle>
+                        <line class="cls-1" x1="12" y1="7.2" x2="12" y2="5.3"></line>
+                        <line class="cls-1" x1="12" y1="7.2" x2="12" y2="5.3"></line>
+                        <line class="cls-1" x1="12" y1="14.84" x2="12" y2="12.93"></line>
+                        <line class="cls-1" x1="9.52" y1="8.64" x2="7.87" y2="7.68"></line>
+                        <line class="cls-1" x1="9.52" y1="8.64" x2="7.87" y2="7.68"></line>
+                        <line class="cls-1" x1="16.13" y1="12.45" x2="14.48" y2="11.5"></line>
+                        <line class="cls-1" x1="14.48" y1="8.64" x2="16.13" y2="7.68"></line>
+                        <line class="cls-1" x1="14.48" y1="8.64" x2="16.13" y2="7.68"></line>
+                        <line class="cls-1" x1="7.87" y1="12.45" x2="9.52" y2="11.5"></line>
+                        <path class="cls-1"
+                          d="M1.5,5.3v9.54a3.82,3.82,0,0,0,3.82,3.82H7.23v2.86L13,18.66h5.73a3.82,3.82,0,0,0,3.82-3.82V5.3a3.82,3.82,0,0,0-3.82-3.82H5.32A3.82,3.82,0,0,0,1.5,5.3Z">
+                        </path>
+                      </g>
+                    </svg></span>
+
+                  <strong>Sistema</strong>
+
+                  <small>
+                    Web
+                  </small>
+
+                </span>
+
+              </label>
+
+
+              <label class="opcao-projeto">
+
+                <input type="checkbox" name="projeto" value="pwa">
+
+                <span class="opcao-conteudo">
+
+                  <span class="opcao-icone"><svg class="situation-card__icon" width="16px" height="16px"
+                      viewBox="0 0 24 24" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                      fill="none" stroke="none">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <defs>
+                          <style>
+                            .cls-1 {
+                              fill: none;
+                              stroke: #cf5d35;
+                              stroke-miterlimit: 10;
+                              stroke-width: 1.91px;
+                            }
+                          </style>
+                        </defs>
+                        <circle class="cls-1" cx="12" cy="10.07" r="2.86"></circle>
+                        <line class="cls-1" x1="12" y1="7.2" x2="12" y2="5.3"></line>
+                        <line class="cls-1" x1="12" y1="7.2" x2="12" y2="5.3"></line>
+                        <line class="cls-1" x1="12" y1="14.84" x2="12" y2="12.93"></line>
+                        <line class="cls-1" x1="9.52" y1="8.64" x2="7.87" y2="7.68"></line>
+                        <line class="cls-1" x1="9.52" y1="8.64" x2="7.87" y2="7.68"></line>
+                        <line class="cls-1" x1="16.13" y1="12.45" x2="14.48" y2="11.5"></line>
+                        <line class="cls-1" x1="14.48" y1="8.64" x2="16.13" y2="7.68"></line>
+                        <line class="cls-1" x1="14.48" y1="8.64" x2="16.13" y2="7.68"></line>
+                        <line class="cls-1" x1="7.87" y1="12.45" x2="9.52" y2="11.5"></line>
+                        <path class="cls-1"
+                          d="M1.5,5.3v9.54a3.82,3.82,0,0,0,3.82,3.82H7.23v2.86L13,18.66h5.73a3.82,3.82,0,0,0,3.82-3.82V5.3a3.82,3.82,0,0,0-3.82-3.82H5.32A3.82,3.82,0,0,0,1.5,5.3Z">
+                        </path>
+                      </g>
+                    </svg></span>
+
+                  <strong>PWA /</strong>
+
+                  <small>
+                    Aplicação
+                  </small>
+
+                </span>
+
+              </label>
+
+
+              <label class="opcao-projeto">
+
+                <input type="checkbox" name="projeto" value="blog">
+
+                <span class="opcao-conteudo">
+
+                  <span class="opcao-icone"><svg class="situation-card__icon" width="16px" height="16px"
+                      viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path
+                          d="M21 12C21 16.9706 16.9706 21 12 21M21 12C21 7.02944 16.9706 3 12 3M21 12C21 13.6569 16.9706 15 12 15C7.02944 15 3 13.6569 3 12M21 12C21 10.3431 16.9706 9 12 9C7.02944 9 3 10.3431 3 12M12 21C7.02944 21 3 16.9706 3 12M12 21C10.3431 21 9 16.9706 9 12C9 7.02944 10.3431 3 12 3M12 21C13.6569 21 15 16.9706 15 12C15 7.02944 13.6569 3 12 3M3 12C3 7.02944 7.02944 3 12 3"
+                          stroke="#cf5d35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </g>
+                    </svg></span>
+
+                  <strong>Blog</strong>
+
+                  <small>
+                    Conteúdo
+                  </small>
+
+                </span>
+
+              </label>
+
+            </div>
+
+
+            <button type="button" id="proximoProjeto" class="botao-proximo">
+
+              Próximo passo
+
+              <span>→</span>
+
+            </button>
+
+          </div>
+
+        </div>
+
       </div>
- 
-    </div>
- 
-  </div>
- 
-</section>
+
+    </section>
 
 
     <!-- ========================================================
@@ -845,6 +991,7 @@
   <script src="js/main.js"></script>
   <script src="components/section-situacao.js"></script>
   <script src="components/simulador.js"></script>
+  <script src="components/section-como-funciona.js"></script>
 </body>
 
 </html>
