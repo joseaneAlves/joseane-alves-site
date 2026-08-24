@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="components/simulador.css">
   <link rel="stylesheet" href="components/SituationCard.css">
   <link rel="stylesheet" href="components/section-como-funciona.css">
+  <link rel="stylesheet" href="components/section-sobre.css">
 </head>
 
 <body>
@@ -491,8 +492,141 @@
 
       </div>
     </section>
-    <section class="quemSouEu" id="quemSouEu" aria-labelledby="quemSouEu-titulo">
-
+    <!-- ============================================================
+     SEÇÃO: Quem sou eu
+     Fundo: Clean — ambiente mais humano e pessoal do site, melhor
+     lugar para a foto. Fala de trajetória e credibilidade pessoal;
+     etapas/metodologia ficam reservadas para #como-funciona, para
+     não repetir conteúdo entre seções.
+     Depende de: components/section-sobre.css
+                 components/section-sobre.js
+     ============================================================ -->
+    <section class="sobre" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="container sobre__inner" data-sobre-animar>
+ 
+        <div class="sobre__grid">
+ 
+          <!-- Coluna visual: foto + moldura decorativa + galho.
+               Troque assets/img/joseane-foto.jpg pela foto real
+               quando estiver pronta; o alt já está preenchido. -->
+          <div class="sobre__visual" style="--sobre-delay: 0ms;">
+            <div class="sobre__foto-moldura" aria-hidden="true"></div>
+            <img class="sobre__foto" src="assets/img/joseane-foto.jpg"
+              alt="Joseane Alves, desenvolvedora web, sorrindo em frente ao notebook.">
+ 
+            <!-- Galho decorativo, traçado à mão — mesma linguagem dos rabiscos da Hero. -->
+            <svg class="sobre__galho" viewBox="0 0 140 160" aria-hidden="true">
+              <path
+                d="M14 150C10 120 8 90 20 60C28 40 42 24 62 12"
+                fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" />
+              <path d="M24 96c-10-4-16-2-22 6" fill="none" stroke="var(--green)" stroke-width="2"
+                stroke-linecap="round" />
+              <path d="M34 68c-9-6-16-5-23 1" fill="none" stroke="var(--green)" stroke-width="2"
+                stroke-linecap="round" />
+              <ellipse cx="12" cy="140" rx="7" ry="3.4" fill="var(--green-pale)"
+                transform="rotate(-18 12 140)" />
+              <ellipse cx="6" cy="112" rx="6.5" ry="3.2" fill="var(--green-pale)"
+                transform="rotate(-32 6 112)" />
+              <ellipse cx="16" cy="80" rx="6" ry="3" fill="var(--green-pale)"
+                transform="rotate(-10 16 80)" />
+              <ellipse cx="46" cy="18" rx="6.5" ry="3.2" fill="var(--green-pale)"
+                transform="rotate(28 46 18)" />
+            </svg>
+          </div>
+ 
+          <!-- Coluna editorial -->
+          <div class="sobre__copy" style="--sobre-delay: 120ms;">
+            <p class="sobre__eyebrow" id="sobre-titulo">Quem sou eu</p>
+            <h2 class="sobre__titulo">
+              Desenvolvedora, parceira<br>e <em>estrategista</em> do seu negócio.
+            </h2>
+ 
+            <p class="sobre__texto">
+              Sou Joseane Alves, desenvolvedora web. Minha paixão por programação começou ainda no curso técnico,
+              e cresceu durante a faculdade, onde percebi que essa era, de fato, a carreira que eu queria seguir.
+            </p>
+            <p class="sobre__texto">
+              No caminho, vivi um período longe do desenvolvimento direto, atuando como analista de sistemas e no
+              suporte a usuários. Foi nessa fase que aprendi algo que carrego até hoje: tecnologia é abstrata até
+              virar solução real na mão de quem usa. Entender como aproximar essas duas pontas — o técnico e o
+              humano — se tornou parte de como eu penso cada projeto.
+            </p>
+            <p class="sobre__texto">
+              Hoje, esse olhar orienta meu trabalho: não busco só entregar código, mas construir soluções que
+              façam sentido para quem realmente vai usá-las.
+            </p>
+ 
+            <p class="sobre__assinatura">Joseane Alves</p>
+            <p class="sobre__assinatura-legenda">Desenvolvedora Web</p>
+ 
+            <a class="sobre__cta" href="#como-funciona">
+              Conhecer meu processo <span aria-hidden="true">→</span>
+            </a>
+          </div>
+ 
+        </div>
+ 
+        <ul class="sobre__indicadores" aria-label="Trajetória e credenciais">
+ 
+          <li class="sobre__indicador" style="--sobre-delay: 240ms;">
+            <span class="sobre__indicador-icone-wrap">
+              <svg class="sobre__indicador-icone" viewBox="0 0 48 48" fill="none" stroke="var(--terracotta)"
+                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="24" cy="24" r="16" />
+                <path d="M24 16v8l6 4" />
+              </svg>
+            </span>
+            <h3 class="sobre__indicador-titulo">13 anos de imersão em tecnologia</h3>
+            <p class="sobre__indicador-texto">Curso técnico, graduação e vivência como analista de sistemas.</p>
+          </li>
+ 
+          <li class="sobre__indicador" style="--sobre-delay: 320ms;">
+            <span class="sobre__indicador-icone-wrap">
+              <svg class="sobre__indicador-icone" viewBox="0 0 48 48" fill="none" stroke="var(--terracotta)"
+                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="6" y="26" width="10" height="14" rx="2" />
+                <rect x="19" y="16" width="10" height="24" rx="2" />
+                <rect x="32" y="8" width="10" height="32" rx="2" />
+              </svg>
+            </span>
+            <h3 class="sobre__indicador-titulo">Do e-commerce ao sistema interno</h3>
+            <p class="sobre__indicador-texto">Projetos institucionais, automação de processos e produtos completos.</p>
+          </li>
+ 
+          <li class="sobre__indicador" style="--sobre-delay: 400ms;">
+            <span class="sobre__indicador-icone-wrap">
+              <svg class="sobre__indicador-icone" viewBox="0 0 48 48" fill="none" stroke="var(--terracotta)"
+                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="24" cy="24" r="15" />
+                <circle cx="24" cy="24" r="9" />
+                <circle cx="24" cy="24" r="2.4" fill="var(--terracotta)" stroke="none" />
+              </svg>
+            </span>
+            <h3 class="sobre__indicador-titulo">Foco por segmento</h3>
+            <p class="sobre__indicador-texto">PMEs, clínicas, profissionais e agências.</p>
+          </li>
+ 
+          <li class="sobre__indicador" style="--sobre-delay: 480ms;">
+            <span class="sobre__indicador-icone-wrap">
+              <svg class="sobre__indicador-icone" viewBox="0 0 48 48" fill="none" stroke="var(--terracotta)"
+                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="8" y="10" width="14" height="14" rx="3" />
+                <rect x="26" y="10" width="14" height="14" rx="3" />
+                <rect x="8" y="28" width="14" height="10" rx="3" />
+                <path d="M32 32c1.5 1.5 3.5 2 6 1.5" />
+                <path d="M35 28l4 4-4 4" />
+              </svg>
+            </span>
+            <h3 class="sobre__indicador-titulo">Sem fórmulas prontas</h3>
+            <p class="sobre__indicador-texto">Cada projeto pensado sob medida, do zero.</p>
+          </li>
+ 
+        </ul>
+ 
+      </div>
+    </section>
+    <section class="casesEmDestaque" id="casesEmDestaque" aria-labelledby="casesEmDestaque-titulo">
+ 
     </section>
     <section class="casesEmDestaque" id="casesEmDestaque" aria-labelledby="casesEmDestaque-titulo">
 
@@ -992,6 +1126,7 @@
   <script src="components/section-situacao.js"></script>
   <script src="components/simulador.js"></script>
   <script src="components/section-como-funciona.js"></script>
+  <script src="components/section-sobre.js"></script>
 </body>
 
 </html>

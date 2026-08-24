@@ -1,0 +1,310 @@
+/* ==========================================================================
+   SEÇÃO: Quem sou eu (#sobre)
+   Fundo: Clean (--paper). Ambiente humano/pessoal do site — foto + trajetória.
+   Etapas de processo/metodologia NÃO entram aqui de propósito: isso já é
+   coberto por #como-funciona. Esta seção fala de pessoa, não de método.
+
+   Estrutura:
+   .sobre__grid        -> 2 colunas desktop: visual | copy
+   .sobre__indicadores -> faixa horizontal abaixo do grid, 4 itens
+
+   Animação de entrada é escopada à seção (.sobre--animar), seguindo o
+   mesmo padrão de .como-funciona--animating / .situacao--animating —
+   evita reacionar animações da Hero.
+   ========================================================================== */
+
+.sobre {
+   background: var(--paper);
+   padding: clamp(4rem, 8vw, 7rem) 0;
+   overflow: hidden;
+}
+
+.sobre__inner {
+   display: flex;
+   flex-direction: column;
+   gap: clamp(3rem, 6vw, 4.5rem);
+}
+
+/* ---------- GRID PRINCIPAL: visual | copy ---------- */
+
+.sobre__grid {
+   display: grid;
+   grid-template-columns: minmax(0, .82fr) minmax(0, 1fr);
+   gap: clamp(2.5rem, 6vw, 5rem);
+   align-items: center;
+}
+
+/* ---------- COLUNA VISUAL ---------- */
+
+.sobre__visual {
+   position: relative;
+   max-width: 26rem;
+   justify-self: center;
+}
+
+.sobre__foto-moldura {
+   position: absolute;
+   inset: 1.1rem -1.1rem -1.1rem 1.1rem;
+   background: var(--paper-warm);
+   border-radius: var(--radiusCard);
+   z-index: 0;
+}
+
+.sobre__foto {
+   position: relative;
+   z-index: 1;
+   display: block;
+   width: 100%;
+   aspect-ratio: 4 / 5;
+   object-fit: cover;
+   border-radius: var(--radiusCard);
+   box-shadow: var(--shadow);
+   background: var(--paper-warm);
+}
+
+.sobre__galho {
+   position: absolute;
+   z-index: 2;
+   left: -2.6rem;
+   bottom: -2.2rem;
+   width: 6rem;
+   height: auto;
+}
+
+/* ---------- COLUNA EDITORIAL ---------- */
+
+.sobre__copy {
+   max-width: 34rem;
+}
+
+.sobre__eyebrow {
+   margin: 0 0 .7rem;
+   color: var(--terracotta);
+   font-family: var(--sans);
+   font-size: .8rem;
+   font-weight: 700;
+   letter-spacing: .11em;
+   text-transform: uppercase;
+}
+
+.sobre__titulo {
+   margin: 0 0 1.4rem;
+   max-width: 24rem;
+   font-size: clamp(1.9rem, 2.9vw, 2.65rem);
+   font-weight: 600;
+   letter-spacing: -.03em;
+   line-height: 1.15;
+   color: var(--charcoal);
+}
+
+.sobre__titulo em {
+   color: var(--terracotta);
+   font-style: normal;
+}
+
+.sobre__texto {
+   margin: 0 0 1rem;
+   max-width: 33rem;
+   color: var(--muted);
+   font-size: .95rem;
+   line-height: 1.65;
+}
+
+.sobre__texto:last-of-type {
+   margin-bottom: 1.6rem;
+}
+
+.sobre__assinatura {
+   margin: 0;
+   font-family: var(--hand);
+   font-size: 2rem;
+   font-weight: 600;
+   line-height: 1;
+   color: var(--charcoal);
+}
+
+.sobre__assinatura-legenda {
+   margin: .2rem 0 1.6rem;
+   font-size: .68rem;
+   font-weight: 600;
+   letter-spacing: .12em;
+   text-transform: uppercase;
+   color: var(--muted);
+}
+
+.sobre__cta {
+   display: inline-flex;
+   align-items: center;
+   gap: .45rem;
+   color: var(--charcoal);
+   font-size: .9rem;
+   font-weight: 600;
+   text-decoration: none;
+   border-bottom: 1px solid var(--charcoal);
+   padding-bottom: .2rem;
+   transition: color var(--transition), border-color var(--transition);
+}
+
+.sobre__cta span {
+   display: inline-block;
+   color: var(--terracotta);
+   transition: transform var(--transition);
+}
+
+.sobre__cta:hover {
+   color: var(--terracotta);
+   border-color: var(--terracotta);
+}
+
+.sobre__cta:hover span {
+   transform: translateX(.25rem);
+}
+
+/* ---------- INDICADORES DE CREDIBILIDADE ---------- */
+
+.sobre__indicadores {
+   display: grid;
+   grid-template-columns: repeat(4, minmax(0, 1fr));
+   gap: 1.1rem;
+   padding: 0;
+   margin: 0;
+   list-style: none;
+}
+
+.sobre__indicador {
+   padding: 1.4rem 1.3rem;
+   background: var(--paper-warm);
+   border: 1px solid transparent;
+   border-radius: var(--radiusCard);
+   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.sobre__indicador:hover {
+   border-color: rgba(207, 93, 53, .28);
+   box-shadow: var(--shadow);
+   transform: translateY(-4px);
+}
+
+.sobre__indicador-icone-wrap {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   width: 2.5rem;
+   height: 2.5rem;
+   margin-bottom: .8rem;
+   background: var(--paper);
+   border-radius: var(--radius);
+}
+
+.sobre__indicador-icone {
+   width: 1.35rem;
+   height: 1.35rem;
+}
+
+.sobre__indicador-titulo {
+   margin: 0 0 .3rem;
+   font-size: .92rem;
+   font-weight: 600;
+   color: var(--charcoal);
+}
+
+.sobre__indicador-texto {
+   margin: 0;
+   font-size: .8rem;
+   line-height: 1.45;
+   color: var(--muted);
+}
+
+/* ---------- ANIMAÇÃO DE ENTRADA (escopada à seção) ---------- */
+
+.sobre__visual,
+.sobre__copy,
+.sobre__indicador {
+   opacity: 0;
+   transform: translateY(16px);
+}
+
+.sobre--animar .sobre__visual,
+.sobre--animar .sobre__copy,
+.sobre--animar .sobre__indicador {
+   animation: sobreSurgir .7s ease forwards;
+   animation-delay: var(--sobre-delay, 0ms);
+}
+
+@keyframes sobreSurgir {
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+/* ========================================================================== 
+   RESPONSIVO
+   ========================================================================== */
+
+@media (max-width:1050px) {
+   .sobre__grid {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: left;
+   }
+
+   .sobre__visual {
+      margin-bottom: .5rem;
+   }
+
+   .sobre__copy {
+      max-width: 34rem;
+   }
+
+   .sobre__titulo {
+      max-width: none;
+   }
+}
+
+@media (max-width:720px) {
+   .sobre__indicadores {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+}
+
+@media (max-width:560px) {
+   .sobre__visual {
+      max-width: 18rem;
+   }
+
+   .sobre__foto-moldura {
+      inset: .8rem -.8rem -.8rem .8rem;
+   }
+
+   .sobre__galho {
+      left: -1.4rem;
+      bottom: -1.4rem;
+      width: 4.5rem;
+   }
+
+   .sobre__titulo {
+      font-size: clamp(1.7rem, 6vw, 2rem);
+   }
+
+   .sobre__indicadores {
+      grid-template-columns: 1fr;
+   }
+}
+
+/* ---------- MOVIMENTO REDUZIDO ---------- */
+
+@media (prefers-reduced-motion:reduce) {
+
+   .sobre__visual,
+   .sobre__copy,
+   .sobre__indicador {
+      opacity: 1;
+      transform: none;
+      animation: none;
+   }
+
+   .sobre__indicador:hover {
+      transform: none;
+   }
+}
