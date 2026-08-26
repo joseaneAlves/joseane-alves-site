@@ -1,0 +1,400 @@
+/* ==========================================================================
+   FAQ — usa os tokens globais já definidos no projeto.
+   Fallbacks abaixo só entram em ação se as variáveis globais não existirem
+   (ex.: ao visualizar este arquivo isolado). Não redefina --terracotta etc.
+   fora do :root global do site.
+   ========================================================================== */
+
+.faq {
+  position: relative;
+  background: var(--cream, #FBF6EF);
+  padding: 6rem 1.5rem 7rem;
+  overflow: hidden;
+}
+
+.faq__container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.faq__eyebrow {
+  display: block;
+  text-align: center;
+  font-family: var(--sans, "Poppins", sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terracotta, #C1592E);
+  margin-bottom: 0.75rem;
+}
+
+.faq__title {
+  text-align: center;
+  font-family: var(--sans, "Poppins", sans-serif);
+  font-weight: 600;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  color: var(--charcoal, #2B2926);
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.faq__subtitle {
+  text-align: center;
+  font-family: var(--sans, "Poppins", sans-serif);
+  font-size: 1rem;
+  color: color-mix(in srgb, var(--charcoal, #2B2926) 65%, transparent);
+  margin: 0 auto 2.5rem;
+  max-width: 46ch;
+}
+
+/* ---------- Lista / Itens ---------- */
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.faq__item {
+  border-bottom: 1px solid color-mix(in srgb, var(--charcoal, #2B2926) 12%, transparent);
+}
+
+.faq__item:first-child {
+  border-top: 1px solid color-mix(in srgb, var(--charcoal, #2B2926) 12%, transparent);
+}
+
+.faq__heading {
+  margin: 0;
+}
+
+.faq__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1.35rem 0.25rem;
+  text-align: left;
+  font-family: var(--sans, "Poppins", sans-serif);
+  color: var(--charcoal, #2B2926);
+  transition: color var(--transition, 0.25s ease);
+}
+
+.faq__trigger:hover {
+  color: var(--terracotta, #C1592E);
+}
+
+.faq__trigger:focus-visible {
+  outline: 2px solid var(--terracotta, #C1592E);
+  outline-offset: 4px;
+  border-radius: var(--radius, 6px);
+}
+
+.faq__trigger-text {
+  font-size: 1.02rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Ícone +/x */
+
+.faq__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.faq__icon-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  transform-origin: center;
+  transition: transform var(--transition, 0.3s ease);
+}
+
+.faq__icon-line--h {
+  width: 14px;
+  height: 1.6px;
+  transform: translate(-50%, -50%);
+}
+
+.faq__icon-line--v {
+  width: 1.6px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+}
+
+.faq__item[data-open="true"] .faq__icon-line--v {
+  transform: translate(-50%, -50%) rotate(90deg) scale(0);
+}
+
+.faq__item[data-open="true"] .faq__icon-line--h {
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+
+/* Painel de resposta — técnica grid-template-rows para altura automática animável */
+
+.faq__answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--transition, 0.4s ease);
+}
+
+.faq__item[data-open="true"] .faq__answer {
+  grid-template-rows: 1fr;
+}
+
+.faq__answer-inner {
+  overflow: hidden;
+}
+
+.faq__answer-text {
+  font-family: var(--sans, "Poppins", sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--charcoal, #2B2926) 78%, transparent);
+  margin: 0 0.25rem 1.35rem;
+  max-width: 62ch;
+}
+
+.faq__answer-text + .faq__answer-text {
+  margin-top: -0.6rem;
+}
+
+/* ---------- Itens extras (ver todas) ---------- */
+
+.faq__item--extra {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.faq__item--extra[data-revealed="true"] {
+  animation: faq-reveal 0.5s ease forwards;
+  animation-delay: var(--faq-delay, 0ms);
+}
+
+@keyframes faq-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Botão "ver todas" ---------- */
+
+.faq__toggle-all {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 2.25rem auto 0;
+  padding: 0.75rem 1.5rem;
+  background: var(--paper, #FFFFFF);
+  border: 1px solid color-mix(in srgb, var(--charcoal, #2B2926) 16%, transparent);
+  border-radius: var(--radius, 999px);
+  font-family: var(--sans, "Poppins", sans-serif);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--charcoal, #2B2926);
+  cursor: pointer;
+  transition: border-color var(--transition, 0.25s ease), color var(--transition, 0.25s ease);
+}
+
+.faq__toggle-all:hover {
+  border-color: var(--terracotta, #C1592E);
+  color: var(--terracotta, #C1592E);
+}
+
+.faq__toggle-all:focus-visible {
+  outline: 2px solid var(--terracotta, #C1592E);
+  outline-offset: 3px;
+}
+
+.faq__toggle-arrow {
+  display: inline-flex;
+  transition: transform var(--transition, 0.3s ease);
+}
+
+.faq__toggle-all[aria-expanded="true"] .faq__toggle-arrow {
+  transform: rotate(180deg);
+}
+
+/* ---------- Link para bloco de agências ---------- */
+
+.faq__partner-link {
+  margin: 2.75rem 0 0;
+  text-align: center;
+  font-family: var(--sans, "Poppins", sans-serif);
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--charcoal, #2B2926) 65%, transparent);
+}
+
+.faq__partner-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-weight: 600;
+  color: var(--terracotta, #C1592E);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.faq__partner-btn:focus-visible {
+  outline: 2px solid var(--terracotta, #C1592E);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ---------- Painel secundário (agências) ---------- */
+
+.faq__partner-panel {
+  position: absolute;
+  inset: 0;
+  background: var(--cream, #FBF6EF);
+  padding: 6rem 1.5rem 7rem;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--transition, 0.35s ease), transform var(--transition, 0.35s ease);
+  pointer-events: none;
+}
+
+.faq__partner-panel[data-active="true"] {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.faq__partner-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: var(--sans, "Poppins", sans-serif);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--charcoal, #2B2926) 70%, transparent);
+  cursor: pointer;
+  transition: color var(--transition, 0.25s ease);
+}
+
+.faq__partner-back:hover {
+  color: var(--terracotta, #C1592E);
+}
+
+.faq__partner-back:focus-visible {
+  outline: 2px solid var(--terracotta, #C1592E);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ---------- Animação de entrada da seção (escopada, não usa html.is-animating) ---------- */
+
+.faq__eyebrow,
+.faq__title,
+.faq__subtitle,
+.faq__list,
+.faq__toggle-all,
+.faq__partner-link {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.faq--animating .faq__eyebrow,
+.faq--animating .faq__title,
+.faq--animating .faq__subtitle,
+.faq--animating .faq__list,
+.faq--animating .faq__toggle-all,
+.faq--animating .faq__partner-link {
+  animation: faq-fade-up 0.6s ease forwards;
+}
+
+.faq--animating .faq__eyebrow   { animation-delay: 0.05s; }
+.faq--animating .faq__title     { animation-delay: 0.12s; }
+.faq--animating .faq__subtitle  { animation-delay: 0.19s; }
+.faq--animating .faq__list      { animation-delay: 0.26s; }
+.faq--animating .faq__toggle-all{ animation-delay: 0.34s; }
+.faq--animating .faq__partner-link { animation-delay: 0.4s; }
+
+@keyframes faq-fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 1050px) {
+  .faq {
+    padding: 5rem 1.5rem 6rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .faq {
+    padding: 4rem 1.25rem 5rem;
+  }
+
+  .faq__subtitle {
+    margin-bottom: 2rem;
+  }
+
+  .faq__trigger-text {
+    font-size: 0.96rem;
+  }
+
+  .faq__partner-panel {
+    padding: 4rem 1.25rem 5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .faq__trigger {
+    gap: 1rem;
+    padding: 1.1rem 0.1rem;
+  }
+
+  .faq__answer-text {
+    font-size: 0.9rem;
+  }
+
+  .faq__toggle-all {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---------- Acessibilidade: respeita prefers-reduced-motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .faq__eyebrow,
+  .faq__title,
+  .faq__subtitle,
+  .faq__list,
+  .faq__toggle-all,
+  .faq__partner-link,
+  .faq__item--extra {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .faq__answer,
+  .faq__icon-line,
+  .faq__trigger,
+  .faq__toggle-arrow,
+  .faq__partner-panel {
+    transition: none !important;
+  }
+}

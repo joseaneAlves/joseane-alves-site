@@ -1,0 +1,390 @@
+/* ==========================================================================
+   Cases — seção dark, mockups em camadas (frame principal + frame secundário)
+   Tokens: usa as custom properties globais do site (--terracotta, --charcoal,
+   --cream, --paper, --hand, --sans, --radius, --shadow, --transition).
+   Os valores em var(--x, fallback) só entram em ação se o token global ainda
+   não estiver carregado — ajuste/remova os fallbacks ao integrar no site.
+   Novo token introduzido aqui: --grafite-profundo (fundo dark da seção,
+   extensão mais escura do --charcoal já usado no resto do site).
+   ========================================================================== */
+
+.cases {
+  /* Tokens novos, exclusivos desta seção — não reaproveitam --paper nem
+     nenhum token claro do design system, porque a seção é dark. */
+  --grafite-profundo: #1D1B1D;
+  --cases-card-bg: #26232A;
+  --cases-border: rgba(245, 241, 234, 0.08);
+
+  background-color: var(--grafite-profundo);
+  color: var(--cream, #F5F1EA);
+  padding: clamp(64px, 8vw, 120px) 24px;
+  overflow: hidden;
+}
+
+.cases__container {
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+/* ---------- Header ---------- */
+
+.cases__header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto clamp(40px, 5vw, 64px);
+}
+
+.cases__eyebrow {
+  font-family: var(--sans, "Poppins", sans-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terracotta, #C1602E);
+  margin: 0 0 12px;
+}
+
+.cases__title {
+  font-family: var(--sans, "Poppins", sans-serif);
+  font-weight: 600;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.25;
+  margin: 0 0 14px;
+}
+
+.cases__title-highlight {
+  color: var(--terracotta, #C1602E);
+}
+
+.cases__subtitle {
+  font-family: var(--sans, "Poppins", sans-serif);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(245, 241, 234, 0.72);
+  margin: 0;
+}
+
+/* ---------- Grid ---------- */
+
+.cases__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 28px;
+}
+
+.cases__card {
+  background-color: var(--cases-card-bg);
+  border: 1px solid var(--cases-border);
+  border-radius: var(--radius, 16px);
+  overflow: hidden;
+  box-shadow: var(--shadow, 0 12px 32px rgba(0, 0, 0, 0.28));
+  transition: transform var(--transition, 0.3s ease), box-shadow var(--transition, 0.3s ease), border-color var(--transition, 0.3s ease);
+}
+
+/* Estado inicial + animação de entrada — mesmo padrão do situation-card:
+   opacity:0 só existe enquanto a seção tem a classe .cases--animating
+   (JS liga isso). Sem JS, os cards já nascem visíveis. Cada card ganha
+   .is-in-view individualmente (IntersectionObserver por card, não por
+   seção), então a entrada acompanha o scroll real do usuário. */
+.cases--animating .cases__card {
+  opacity: 0;
+}
+
+.cases--animating .cases__card.is-in-view {
+  animation: casesCardAppear 300ms cubic-bezier(.2, .8, .2, 1) forwards;
+  animation-delay: var(--cases-delay, 0ms);
+}
+
+@keyframes casesCardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cases__card:hover {
+  border-color: rgba(193, 96, 46, 0.35);
+  box-shadow: var(--shadow, 0 20px 44px rgba(0, 0, 0, 0.36));
+  transform: translateY(-4px);
+}
+
+/* ---------- Mockup ---------- */
+
+.cases__mockup {
+  position: relative;
+  padding: 32px 24px 44px;
+  min-height: 240px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(193, 96, 46, 0.14), transparent 55%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.28));
+}
+
+.cases__mockup-frame {
+  position: relative;
+  background: #1B1A1D;
+  border-radius: 8px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.cases__mockup-frame--primary {
+  width: 84%;
+  padding-top: 8px;
+}
+
+.cases__mockup-frame--phone {
+  position: absolute;
+  right: 6%;
+  bottom: -28px;
+  width: 30%;
+  border-radius: 22px;
+  border: 3px solid var(--grafite-profundo);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+}
+
+.cases__frame-notch {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34%;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(245, 241, 234, 0.28);
+  z-index: 1;
+}
+
+.cases__frame-img--phone {
+  margin-top: 0;
+  max-height: 260px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.cases__frame-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(245, 241, 234, 0.22);
+  margin: 0 3px;
+}
+
+.cases__mockup-frame--primary .cases__frame-dot:first-child {
+  margin-left: 10px;
+}
+
+.cases__frame-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 6px;
+}
+
+/* ---------- Placeholder mockup (case pendente) ---------- */
+
+.cases__mockup--pending {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cases__blueprint {
+  width: 78%;
+  height: auto;
+  opacity: 0.5;
+}
+
+.cases__blueprint-frame {
+  fill: none;
+  stroke: rgba(245, 241, 234, 0.35);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+
+.cases__blueprint-line {
+  stroke: rgba(245, 241, 234, 0.25);
+  stroke-width: 1.5;
+}
+
+.cases__blueprint-block {
+  fill: none;
+  stroke: rgba(193, 96, 46, 0.55);
+  stroke-width: 1.5;
+}
+
+.cases__badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-family: var(--sans, "Poppins", sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--cream, #F5F1EA);
+  background: rgba(245, 241, 234, 0.1);
+  border: 1px solid rgba(245, 241, 234, 0.18);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.cases__card--pending {
+  opacity: inherit;
+}
+
+.cases__card--pending .cases__body {
+  opacity: 0.88;
+}
+
+/* ---------- Body / copy ---------- */
+
+.cases__body {
+  padding: 24px 26px 28px;
+}
+
+.cases__tag {
+  font-family: var(--sans, "Poppins", sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--terracotta, #C1602E);
+  margin: 0 0 8px;
+}
+
+.cases__card-title {
+  font-family: var(--sans, "Poppins", sans-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--cream, #F5F1EA);
+}
+
+.cases__card-desc {
+  font-family: var(--sans, "Poppins", sans-serif);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(245, 241, 234, 0.72);
+  margin: 0 0 18px;
+}
+
+.cases__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--sans, "Poppins", sans-serif);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--terracotta, #C1602E);
+  text-decoration: none;
+}
+
+.cases__link-icon {
+  transition: var(--transition, 0.3s ease);
+}
+
+.cases__link:hover .cases__link-icon {
+  transform: translateX(3px);
+}
+
+.cases__link--disabled {
+  color: rgba(245, 241, 234, 0.4);
+  cursor: default;
+}
+
+/* ---------- Footer / CTA geral ---------- */
+
+.cases__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(36px, 5vw, 56px);
+}
+
+.cases__view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans, "Poppins", sans-serif);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--cream, #F5F1EA);
+  background: transparent;
+  border: 1.5px solid rgba(245, 241, 234, 0.28);
+  border-radius: var(--radius, 999px);
+  padding: 13px 28px;
+  text-decoration: none;
+  transition: var(--transition, 0.3s ease);
+}
+
+.cases__view-all:hover {
+  border-color: var(--terracotta, #C1602E);
+  color: var(--terracotta, #C1602E);
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 1050px) {
+  .cases__grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .cases__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cases__mockup-frame--phone {
+    width: 34%;
+  }
+}
+
+@media (max-width: 560px) {
+  .cases {
+    padding: 56px 18px;
+  }
+
+  .cases__mockup {
+    padding: 26px 18px 40px;
+  }
+
+  .cases__mockup-frame--primary {
+    width: 90%;
+  }
+
+  .cases__mockup-frame--phone {
+    width: 38%;
+    right: 4%;
+    bottom: -20px;
+  }
+
+  .cases__frame-img--phone {
+    max-height: 190px;
+  }
+
+  .cases__body {
+    padding: 22px 20px 24px;
+  }
+}
+
+/* ---------- Acessibilidade ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .cases--animating .cases__card {
+    opacity: 1;
+    animation: none;
+  }
+
+  .cases__card:hover {
+    transform: none;
+  }
+
+  .cases__link:hover .cases__link-icon {
+    transform: none;
+  }
+}

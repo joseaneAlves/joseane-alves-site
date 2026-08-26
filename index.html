@@ -22,6 +22,10 @@
   <link rel="stylesheet" href="components/SituationCard.css">
   <link rel="stylesheet" href="components/section-como-funciona.css">
   <link rel="stylesheet" href="components/section-sobre.css">
+  <link rel="stylesheet" href="components/cases.css">
+  <link rel="stylesheet" href="components/faq.css">
+  <link rel="stylesheet" href="components/whatsapp-flutuante.css">
+  <link rel="stylesheet" href="components/rodape.css">
 </head>
 
 <body>
@@ -486,9 +490,9 @@
 
         </ol>
 
-        <a class="como-funciona__cta" href="#processo-detalhado" style="--etapa-delay: 760ms;">
+        <!-- <a class="como-funciona__cta" href="#processo-detalhado" style="--etapa-delay: 760ms;">
           Ver todos os detalhes do processo <span aria-hidden="true">→</span>
-        </a>
+        </a> -->
 
       </div>
     </section>
@@ -503,44 +507,25 @@
      ============================================================ -->
     <section class="sobre" id="sobre" aria-labelledby="sobre-titulo">
       <div class="container sobre__inner" data-sobre-animar>
- 
+
         <div class="sobre__grid">
- 
+
           <!-- Coluna visual: foto + moldura decorativa + galho.
                Troque assets/img/joseane-foto.jpg pela foto real
                quando estiver pronta; o alt já está preenchido. -->
           <div class="sobre__visual" style="--sobre-delay: 0ms;">
             <div class="sobre__foto-moldura" aria-hidden="true"></div>
-            <img class="sobre__foto" src="assets/img/joseane-foto.jpg"
+            <img class="sobre__foto" src="assets/img/joseane-escura-folha-sem-fundo.webp"
               alt="Joseane Alves, desenvolvedora web, sorrindo em frente ao notebook.">
- 
-            <!-- Galho decorativo, traçado à mão — mesma linguagem dos rabiscos da Hero. -->
-            <svg class="sobre__galho" viewBox="0 0 140 160" aria-hidden="true">
-              <path
-                d="M14 150C10 120 8 90 20 60C28 40 42 24 62 12"
-                fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" />
-              <path d="M24 96c-10-4-16-2-22 6" fill="none" stroke="var(--green)" stroke-width="2"
-                stroke-linecap="round" />
-              <path d="M34 68c-9-6-16-5-23 1" fill="none" stroke="var(--green)" stroke-width="2"
-                stroke-linecap="round" />
-              <ellipse cx="12" cy="140" rx="7" ry="3.4" fill="var(--green-pale)"
-                transform="rotate(-18 12 140)" />
-              <ellipse cx="6" cy="112" rx="6.5" ry="3.2" fill="var(--green-pale)"
-                transform="rotate(-32 6 112)" />
-              <ellipse cx="16" cy="80" rx="6" ry="3" fill="var(--green-pale)"
-                transform="rotate(-10 16 80)" />
-              <ellipse cx="46" cy="18" rx="6.5" ry="3.2" fill="var(--green-pale)"
-                transform="rotate(28 46 18)" />
-            </svg>
           </div>
- 
+
           <!-- Coluna editorial -->
           <div class="sobre__copy" style="--sobre-delay: 120ms;">
             <p class="sobre__eyebrow" id="sobre-titulo">Quem sou eu</p>
             <h2 class="sobre__titulo">
               Desenvolvedora, parceira<br>e <em>estrategista</em> do seu negócio.
             </h2>
- 
+
             <p class="sobre__texto">
               Sou Joseane Alves, desenvolvedora web. Minha paixão por programação começou ainda no curso técnico,
               e cresceu durante a faculdade, onde percebi que essa era, de fato, a carreira que eu queria seguir.
@@ -555,19 +540,19 @@
               Hoje, esse olhar orienta meu trabalho: não busco só entregar código, mas construir soluções que
               façam sentido para quem realmente vai usá-las.
             </p>
- 
+
             <p class="sobre__assinatura">Joseane Alves</p>
             <p class="sobre__assinatura-legenda">Desenvolvedora Web</p>
- 
+
             <a class="sobre__cta" href="#como-funciona">
               Conhecer meu processo <span aria-hidden="true">→</span>
             </a>
           </div>
- 
+
         </div>
- 
+
         <ul class="sobre__indicadores" aria-label="Trajetória e credenciais">
- 
+
           <li class="sobre__indicador" style="--sobre-delay: 240ms;">
             <span class="sobre__indicador-icone-wrap">
               <svg class="sobre__indicador-icone" viewBox="0 0 48 48" fill="none" stroke="var(--terracotta)"
@@ -579,7 +564,7 @@
             <h3 class="sobre__indicador-titulo">13 anos de imersão em tecnologia</h3>
             <p class="sobre__indicador-texto">Curso técnico, graduação e vivência como analista de sistemas.</p>
           </li>
- 
+
           <li class="sobre__indicador" style="--sobre-delay: 320ms;">
             <span class="sobre__indicador-icone-wrap">
               <svg class="sobre__indicador-icone" viewBox="0 0 48 48" fill="none" stroke="var(--terracotta)"
@@ -592,7 +577,7 @@
             <h3 class="sobre__indicador-titulo">Do e-commerce ao sistema interno</h3>
             <p class="sobre__indicador-texto">Projetos institucionais, automação de processos e produtos completos.</p>
           </li>
- 
+
           <li class="sobre__indicador" style="--sobre-delay: 400ms;">
             <span class="sobre__indicador-icone-wrap">
               <svg class="sobre__indicador-icone" viewBox="0 0 48 48" fill="none" stroke="var(--terracotta)"
@@ -605,7 +590,7 @@
             <h3 class="sobre__indicador-titulo">Foco por segmento</h3>
             <p class="sobre__indicador-texto">PMEs, clínicas, profissionais e agências.</p>
           </li>
- 
+
           <li class="sobre__indicador" style="--sobre-delay: 480ms;">
             <span class="sobre__indicador-icone-wrap">
               <svg class="sobre__indicador-icone" viewBox="0 0 48 48" fill="none" stroke="var(--terracotta)"
@@ -617,19 +602,160 @@
                 <path d="M35 28l4 4-4 4" />
               </svg>
             </span>
-            <h3 class="sobre__indicador-titulo">Sem fórmulas prontas</h3>
+            <h3 class="sobre__indicador-titulo">Sem códigos genéricos</h3>
             <p class="sobre__indicador-texto">Cada projeto pensado sob medida, do zero.</p>
           </li>
- 
+
         </ul>
- 
+
       </div>
     </section>
-    <section class="casesEmDestaque" id="casesEmDestaque" aria-labelledby="casesEmDestaque-titulo">
- 
-    </section>
-    <section class="casesEmDestaque" id="casesEmDestaque" aria-labelledby="casesEmDestaque-titulo">
+    <!--
+  Seção: Cases
+  Fundo dark (grafite profundo) — conforme definido na paleta alternada do site.
+  Depende de: cases.css, cases.js
+  Hooks JS: [data-cases-section], [data-cases-card]
+  Fonte de verdade do conteúdo: cada card resume o projeto; detalhe completo fica
+  na página/modal de case individual (a implementar) — ver [data-case-link].
+-->
+    <section class="cases" id="cases" data-cases-section>
+      <div class="cases__container">
 
+        <header class="cases__header">
+          <p class="cases__eyebrow">Cases em destaque</p>
+          <h2 class="cases__title">
+            Projetos que <span class="cases__title-highlight">saem do papel</span>
+          </h2>
+          <p class="cases__subtitle">
+            Da primeira conversa sobre o negócio até o site e o sistema no ar.
+          </p>
+        </header>
+
+        <div class="cases__grid">
+
+          <!-- Card 1 — Cida Fialho: site institucional -->
+      <article class="cases__card" data-cases-card style="--cases-delay: 0ms">
+        <div class="cases__mockup">
+          <div class="cases__mockup-frame cases__mockup-frame--primary" aria-hidden="true">
+            <span class="cases__frame-dot"></span>
+            <span class="cases__frame-dot"></span>
+            <span class="cases__frame-dot"></span>
+            <img
+              src="assets/img/cida-site-desktop.webp"
+              alt=""
+              class="cases__frame-img"
+              loading="lazy"
+              width="1400"
+              height="875"
+            >
+          </div>
+          <div class="cases__mockup-frame cases__mockup-frame--phone" aria-hidden="true">
+            <span class="cases__frame-notch"></span>
+            <img
+              src="assets/img/cida-site-mobile.webp"
+              alt=""
+              class="cases__frame-img cases__frame-img--phone"
+              loading="lazy"
+              width="430"
+              height="932"
+            >
+          </div>
+        </div>
+ 
+        <div class="cases__body">
+          <p class="cases__tag">Site institucional</p>
+          <h3 class="cases__card-title">Cida Fialho</h3>
+          <p class="cases__card-desc">
+            Site institucional para apresentar o trabalho, transmitir
+            confiança e converter visitantes em agendamentos — com
+            atendimento direto pelo WhatsApp.
+          </p>
+          <a href="#" class="cases__link" data-case-link data-case-id="cida-fialho-site">
+            Ver case
+            <svg class="cases__link-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+          <!-- Card 2 — Cida Fialho (site + sistema) -->
+          <article class="cases__card" data-cases-card style="--cases-delay: 0ms">
+            <div class="cases__mockup">
+              <div class="cases__mockup-frame cases__mockup-frame--primary" aria-hidden="true">
+                <span class="cases__frame-dot"></span>
+                <span class="cases__frame-dot"></span>
+                <span class="cases__frame-dot"></span>
+                <img src="assets/img/ceraapp-sistema.webp" alt="" class="cases__frame-img" loading="lazy" width="1365"
+                  height="767">
+              </div>
+              <div class="cases__mockup-frame cases__mockup-frame--phone" aria-hidden="true">
+                <span class="cases__frame-notch"></span>
+                <img src="assets/img/ceraapp-mobile.webp" alt="" class="cases__frame-img cases__frame-img--phone"
+                  loading="lazy" width="500" height="960">
+              </div>
+            </div>
+
+            <div class="cases__body">
+              <p class="cases__tag">Site institucional + sistema web</p>
+              <h3 class="cases__card-title">Cida Fialho</h3>
+              <p class="cases__card-desc">
+                Site institucional para captar agendamentos e sistema próprio de
+                gestão da agenda, clientes e serviços — do primeiro contato ao
+                painel do dia a dia.
+              </p>
+              <a href="#" class="cases__link" data-case-link data-case-id="cida-fialho">
+                Ver case
+                <svg class="cases__link-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3 — Oficina mecânica (em reconstrução) -->
+          <article class="cases__card cases__card--pending" data-cases-card style="--cases-delay: 120ms">
+            <div class="cases__mockup cases__mockup--pending">
+              <svg class="cases__blueprint" viewBox="0 0 400 260" aria-hidden="true">
+                <rect x="20" y="20" width="360" height="220" rx="8" class="cases__blueprint-frame" />
+                <line x1="20" y1="60" x2="380" y2="60" class="cases__blueprint-line" />
+                <rect x="40" y="80" width="110" height="70" rx="4" class="cases__blueprint-block" />
+                <rect x="165" y="80" width="110" height="70" rx="4" class="cases__blueprint-block" />
+                <rect x="290" y="80" width="70" height="70" rx="4" class="cases__blueprint-block" />
+                <line x1="40" y1="170" x2="360" y2="170" class="cases__blueprint-line" />
+                <line x1="40" y1="190" x2="260" y2="190" class="cases__blueprint-line" />
+                <line x1="40" y1="205" x2="220" y2="205" class="cases__blueprint-line" />
+              </svg>
+              <span class="cases__badge">Em reconstrução</span>
+            </div>
+
+            <div class="cases__body">
+              <p class="cases__tag">Site institucional + e-commerce</p>
+              <h3 class="cases__card-title">Oficina &amp; Loja de Autopeças</h3>
+              <p class="cases__card-desc">
+                Projeto original em WordPress sendo refeito do zero — nova versão
+                em desenvolvimento, com repaginação completa de identidade e código.
+              </p>
+              <span class="cases__link cases__link--disabled">
+                Em breve
+              </span>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="cases__footer">
+          <a href="#" class="cases__view-all" id="verTodosCases">
+            Ver todos os cases
+            <svg class="cases__link-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
     </section>
     <!-- ============================================================
      SIMULADOR — dois caminhos: guiado (recomendado para a maioria
@@ -908,7 +1034,520 @@
       </div>
 
     </section>
+    <!--
+  Seção FAQ
+  - Segue os tokens globais já definidos no site (--terracotta, --charcoal, --cream, --paper, --sans, --hand, --radius, --shadow, --transition)
+  - BEM: .faq, .faq__elemento, .faq__elemento--modificador
+  - Animação de entrada usa classe escopada .faq--animating (não usa html.is-animating global)
+-->
+<section class="faq" id="faq" data-faq-section>
+  <div class="faq__container">
 
+    <span class="faq__eyebrow">Dúvidas frequentes</span>
+    <h2 class="faq__title">Perguntas que recebo com frequência</h2>
+    <p class="faq__subtitle">Reuni aqui as dúvidas mais comuns antes de fechar um projeto. Não encontrou a sua? Me chama.</p>
+
+    <!-- ===================== BLOCO PRINCIPAL (clientes finais) ===================== -->
+    <div class="faq__list" data-faq-list="main">
+
+      <!-- 1 -->
+      <div class="faq__item" data-faq-item>
+        <h3 class="faq__heading">
+          <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-answer-1" id="faq-question-1">
+            <span class="faq__trigger-text">Qual é o prazo médio de entrega?</span>
+            <span class="faq__icon" aria-hidden="true">
+              <span class="faq__icon-line faq__icon-line--h"></span>
+              <span class="faq__icon-line faq__icon-line--v"></span>
+            </span>
+          </button>
+        </h3>
+        <div class="faq__answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1" data-faq-panel>
+          <div class="faq__answer-inner">
+            <p class="faq__answer-text">Para sites institucionais e landing pages, o prazo costuma ficar entre 4 e 5 semanas, do planejamento à entrega. Quando o cliente já tem o layout aprovado (por exemplo, um arquivo do Figma pronto), esse prazo cai para cerca de 7 dias úteis.</p>
+            <p class="faq__answer-text">Se o projeto incluir um blog simples, de exibição de conteúdo, o prazo permanece dentro dessa mesma faixa. Já blogs com painel de gestão próprio, onde você mesmo publica e organiza o conteúdo sem depender de mim, são tratados como sistema — e entram no prazo de pelo menos 3 meses.</p>
+            <p class="faq__answer-text">Para sistemas mais complexos (como automações, painéis e áreas administrativas), o prazo é de pelo menos 3 meses. Nesses projetos, você acompanha o desenvolvimento de perto, com visibilidade de cada seção e área do sistema conforme são construídas.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="faq__item" data-faq-item>
+        <h3 class="faq__heading">
+          <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">
+            <span class="faq__trigger-text">Como funciona o pagamento?</span>
+            <span class="faq__icon" aria-hidden="true">
+              <span class="faq__icon-line faq__icon-line--h"></span>
+              <span class="faq__icon-line faq__icon-line--v"></span>
+            </span>
+          </button>
+        </h3>
+        <div class="faq__answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2" data-faq-panel>
+          <div class="faq__answer-inner">
+            <p class="faq__answer-text">Trabalho com 30% de entrada e o restante parcelado via Pix. No momento não trabalho com cartão.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="faq__item" data-faq-item>
+        <h3 class="faq__heading">
+          <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">
+            <span class="faq__trigger-text">O site fica no meu nome, no meu domínio e na minha hospedagem?</span>
+            <span class="faq__icon" aria-hidden="true">
+              <span class="faq__icon-line faq__icon-line--h"></span>
+              <span class="faq__icon-line faq__icon-line--v"></span>
+            </span>
+          </button>
+        </h3>
+        <div class="faq__answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3" data-faq-panel>
+          <div class="faq__answer-inner">
+            <p class="faq__answer-text">Sim. O domínio, a hospedagem e o conteúdo do site são totalmente seus. Com sua autorização, posso apresentar o projeto como case real no meu portfólio, incluindo marca e identidade visual. Após o encerramento do contrato, textos e imagens do case podem ser atualizados por mim para manter o portfólio sempre representativo do meu trabalho atual.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="faq__item" data-faq-item>
+        <h3 class="faq__heading">
+          <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">
+            <span class="faq__trigger-text">Vocês trabalham com manutenção depois da entrega?</span>
+            <span class="faq__icon" aria-hidden="true">
+              <span class="faq__icon-line faq__icon-line--h"></span>
+              <span class="faq__icon-line faq__icon-line--v"></span>
+            </span>
+          </button>
+        </h3>
+        <div class="faq__answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4" data-faq-panel>
+          <div class="faq__answer-inner">
+            <p class="faq__answer-text">Sim. Manutenção de conteúdo (como atualização de textos, produtos de loja, posts de blog ou e-mail) é tratada como plano de manutenção, e não como melhoria. Já novas funcionalidades fora do escopo original entram como projeto à parte.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="faq__item" data-faq-item>
+        <h3 class="faq__heading">
+          <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-answer-5" id="faq-question-5">
+            <span class="faq__trigger-text">Posso solicitar alterações depois de finalizado?</span>
+            <span class="faq__icon" aria-hidden="true">
+              <span class="faq__icon-line faq__icon-line--h"></span>
+              <span class="faq__icon-line faq__icon-line--v"></span>
+            </span>
+          </button>
+        </h3>
+        <div class="faq__answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5" data-faq-panel>
+          <div class="faq__answer-inner">
+            <p class="faq__answer-text">Durante o desenvolvimento, você pode solicitar até 3 rodadas de pequenos ajustes. Após a entrega, correções de bugs são cobertas sem custo adicional. Já melhorias — ou seja, funcionalidades que não fizeram parte do escopo definido no início do projeto — são orçadas separadamente.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="faq__item" data-faq-item>
+        <h3 class="faq__heading">
+          <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-answer-6" id="faq-question-6">
+            <span class="faq__trigger-text">Por que contratar uma desenvolvedora independente em vez de uma agência?</span>
+            <span class="faq__icon" aria-hidden="true">
+              <span class="faq__icon-line faq__icon-line--h"></span>
+              <span class="faq__icon-line faq__icon-line--v"></span>
+            </span>
+          </button>
+        </h3>
+        <div class="faq__answer" id="faq-answer-6" role="region" aria-labelledby="faq-question-6" data-faq-panel>
+          <div class="faq__answer-inner">
+            <p class="faq__answer-text">Porque você fala diretamente comigo do início ao fim do projeto — sem intermediários, sem repasse de informação entre times. Além de desenvolver, entendo de negócio: escuto o que você precisa, estudo seu público e proponho a solução mais adequada para o seu momento.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ ITENS EXTRAS (ocultos até "ver todas") ============ -->
+
+      <div class="faq__item faq__item--extra" data-faq-item data-faq-extra hidden>
+        <h3 class="faq__heading">
+          <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-answer-7" id="faq-question-7">
+            <span class="faq__trigger-text">É possível integrar com WhatsApp, pagamento e outros serviços?</span>
+            <span class="faq__icon" aria-hidden="true">
+              <span class="faq__icon-line faq__icon-line--h"></span>
+              <span class="faq__icon-line faq__icon-line--v"></span>
+            </span>
+          </button>
+        </h3>
+        <div class="faq__answer" id="faq-answer-7" role="region" aria-labelledby="faq-question-7" data-faq-panel>
+          <div class="faq__answer-inner">
+            <p class="faq__answer-text">Sim. Integro WhatsApp, gateways de pagamento, agendamento, redes sociais e outras ferramentas que seu negócio já utiliza ou pretende usar.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item faq__item--extra" data-faq-item data-faq-extra hidden>
+        <h3 class="faq__heading">
+          <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-answer-8" id="faq-question-8">
+            <span class="faq__trigger-text">Vocês emitem nota fiscal?</span>
+            <span class="faq__icon" aria-hidden="true">
+              <span class="faq__icon-line faq__icon-line--h"></span>
+              <span class="faq__icon-line faq__icon-line--v"></span>
+            </span>
+          </button>
+        </h3>
+        <div class="faq__answer" id="faq-answer-8" role="region" aria-labelledby="faq-question-8" data-faq-panel>
+          <div class="faq__answer-inner">
+            <p class="faq__answer-text">No momento, atendo como pessoa física e não emito nota fiscal. Se esse for um requisito para o seu processo de contratação, me avise antes de fecharmos o projeto para conversarmos sobre a melhor forma de formalizar.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item faq__item--extra" data-faq-item data-faq-extra hidden>
+        <h3 class="faq__heading">
+          <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-answer-9" id="faq-question-9">
+            <span class="faq__trigger-text">Como funciona o processo, do primeiro contato até o site no ar?</span>
+            <span class="faq__icon" aria-hidden="true">
+              <span class="faq__icon-line faq__icon-line--h"></span>
+              <span class="faq__icon-line faq__icon-line--v"></span>
+            </span>
+          </button>
+        </h3>
+        <div class="faq__answer" id="faq-answer-9" role="region" aria-labelledby="faq-question-9" data-faq-panel>
+          <div class="faq__answer-inner">
+            <p class="faq__answer-text">Começamos com uma conversa para entender seu momento e objetivo. Depois, defino a estrutura ideal, apresento uma proposta e, com aprovação, sigo para o desenvolvimento em etapas, com pontos de validação até a entrega final.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item faq__item--extra" data-faq-item data-faq-extra hidden>
+        <h3 class="faq__heading">
+          <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-answer-10" id="faq-question-10">
+            <span class="faq__trigger-text">E se eu não souber exatamente o que preciso?</span>
+            <span class="faq__icon" aria-hidden="true">
+              <span class="faq__icon-line faq__icon-line--h"></span>
+              <span class="faq__icon-line faq__icon-line--v"></span>
+            </span>
+          </button>
+        </h3>
+        <div class="faq__answer" id="faq-answer-10" role="region" aria-labelledby="faq-question-10" data-faq-panel>
+          <div class="faq__answer-inner">
+            <p class="faq__answer-text">Sem problema — é mais comum do que parece. Tenho um simulador no site que te ajuda a identificar, em poucos passos, qual tipo de solução faz mais sentido para o seu momento.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item faq__item--extra" data-faq-item data-faq-extra hidden>
+        <h3 class="faq__heading">
+          <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-answer-11" id="faq-question-11">
+            <span class="faq__trigger-text">O valor do orçamento pode mudar depois de fechado?</span>
+            <span class="faq__icon" aria-hidden="true">
+              <span class="faq__icon-line faq__icon-line--h"></span>
+              <span class="faq__icon-line faq__icon-line--v"></span>
+            </span>
+          </button>
+        </h3>
+        <div class="faq__answer" id="faq-answer-11" role="region" aria-labelledby="faq-question-11" data-faq-panel>
+          <div class="faq__answer-inner">
+            <p class="faq__answer-text">Não, a menos que o escopo do projeto mude. Qualquer solicitação fora do que foi combinado inicialmente é orçada à parte, sempre com sua aprovação antes de qualquer ajuste de valor.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item faq__item--extra" data-faq-item data-faq-extra hidden>
+        <h3 class="faq__heading">
+          <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-answer-12" id="faq-question-12">
+            <span class="faq__trigger-text">Vocês só fazem sites institucionais ou também sistemas mais complexos?</span>
+            <span class="faq__icon" aria-hidden="true">
+              <span class="faq__icon-line faq__icon-line--h"></span>
+              <span class="faq__icon-line faq__icon-line--v"></span>
+            </span>
+          </button>
+        </h3>
+        <div class="faq__answer" id="faq-answer-12" role="region" aria-labelledby="faq-question-12" data-faq-panel>
+          <div class="faq__answer-inner">
+            <p class="faq__answer-text">Faço os dois. Já desenvolvi desde sites institucionais até sistemas de agendamento e automações mais robustas. Você pode ver exemplos reais na seção de projetos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item faq__item--extra" data-faq-item data-faq-extra hidden>
+        <h3 class="faq__heading">
+          <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-answer-13" id="faq-question-13">
+            <span class="faq__trigger-text">Vocês fazem página de link na bio?</span>
+            <span class="faq__icon" aria-hidden="true">
+              <span class="faq__icon-line faq__icon-line--h"></span>
+              <span class="faq__icon-line faq__icon-line--v"></span>
+            </span>
+          </button>
+        </h3>
+        <div class="faq__answer" id="faq-answer-13" role="region" aria-labelledby="faq-question-13" data-faq-panel>
+          <div class="faq__answer-inner">
+            <p class="faq__answer-text">Sim. É uma ótima opção para quem está começando ou ainda não precisa de um site completo — reúne seus contatos, redes sociais, portfólio e botão de WhatsApp em uma única página, direto do link da sua bio.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="faq__toggle-all" type="button" data-faq-toggle-all aria-expanded="false">
+      <span data-faq-toggle-label>Ver todas as perguntas</span>
+      <span class="faq__toggle-arrow" aria-hidden="true">
+        <svg viewBox="0 0 16 16" width="16" height="16" fill="none">
+          <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </button>
+
+    <!-- ===================== LINK PARA BLOCO DE AGÊNCIAS ===================== -->
+    <p class="faq__partner-link">
+      É uma agência ou empresa buscando parceria?
+      <button class="faq__partner-btn" type="button" data-faq-partner-open>Veja aqui</button>
+    </p>
+
+  </div>
+
+  <!-- ===================== BLOCO SECUNDÁRIO (agências e parceiros) ===================== -->
+  <div class="faq__partner-panel" data-faq-partner-panel hidden>
+    <div class="faq__container">
+
+      <button class="faq__partner-back" type="button" data-faq-partner-close>
+        <svg viewBox="0 0 16 16" width="16" height="16" fill="none" aria-hidden="true">
+          <path d="M10 4l-4 4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Voltar para perguntas de clientes
+      </button>
+
+      <span class="faq__eyebrow">Para agências e parceiros</span>
+      <h2 class="faq__title">Como funciona uma parceria comigo</h2>
+      <p class="faq__subtitle">Perguntas comuns de agências e estúdios que buscam reforço de produção.</p>
+
+      <div class="faq__list" data-faq-list="partner">
+
+        <div class="faq__item" data-faq-item>
+          <h3 class="faq__heading">
+            <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-partner-answer-1" id="faq-partner-question-1">
+              <span class="faq__trigger-text">Você trabalha como white-label, sob a marca da agência?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <span class="faq__icon-line faq__icon-line--h"></span>
+                <span class="faq__icon-line faq__icon-line--v"></span>
+              </span>
+            </button>
+          </h3>
+          <div class="faq__answer" id="faq-partner-answer-1" role="region" aria-labelledby="faq-partner-question-1" data-faq-panel>
+            <div class="faq__answer-inner">
+              <p class="faq__answer-text">Sim. Posso atuar como extensão da sua equipe, sem aparecer para o cliente final, ou de forma colaborativa — o formato é combinado conforme a necessidade da parceria.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item" data-faq-item>
+          <h3 class="faq__heading">
+            <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-partner-answer-2" id="faq-partner-question-2">
+              <span class="faq__trigger-text">Como funciona a comunicação durante um projeto em parceria?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <span class="faq__icon-line faq__icon-line--h"></span>
+                <span class="faq__icon-line faq__icon-line--v"></span>
+              </span>
+            </button>
+          </h3>
+          <div class="faq__answer" id="faq-partner-answer-2" role="region" aria-labelledby="faq-partner-question-2" data-faq-panel>
+            <div class="faq__answer-inner">
+              <p class="faq__answer-text">Sigo o fluxo de comunicação definido pela agência — seja por canal direto, ferramenta de gestão de projetos ou pontos de alinhamento periódicos. Meu objetivo é me encaixar no processo de vocês.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item" data-faq-item>
+          <h3 class="faq__heading">
+            <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-partner-answer-3" id="faq-partner-question-3">
+              <span class="faq__trigger-text">Você consegue atender prazos e demandas definidos pela agência?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <span class="faq__icon-line faq__icon-line--h"></span>
+                <span class="faq__icon-line faq__icon-line--v"></span>
+              </span>
+            </button>
+          </h3>
+          <div class="faq__answer" id="faq-partner-answer-3" role="region" aria-labelledby="faq-partner-question-3" data-faq-panel>
+            <div class="faq__answer-inner">
+              <p class="faq__answer-text">Sim. Trabalho com prazos combinados previamente e mantenho comunicação proativa caso qualquer ajuste seja necessário ao longo do projeto.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item" data-faq-item>
+          <h3 class="faq__heading">
+            <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-partner-answer-4" id="faq-partner-question-4">
+              <span class="faq__trigger-text">Qual sua disponibilidade para projetos recorrentes ou pontuais?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <span class="faq__icon-line faq__icon-line--h"></span>
+                <span class="faq__icon-line faq__icon-line--v"></span>
+              </span>
+            </button>
+          </h3>
+          <div class="faq__answer" id="faq-partner-answer-4" role="region" aria-labelledby="faq-partner-question-4" data-faq-panel>
+            <div class="faq__answer-inner">
+              <p class="faq__answer-text">Atendo tanto demandas pontuais quanto parcerias contínuas. Se você busca alguém de confiança para acionar sempre que surgir um novo projeto, também é possível estruturar essa relação.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item" data-faq-item>
+          <h3 class="faq__heading">
+            <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-partner-answer-5" id="faq-partner-question-5">
+              <span class="faq__trigger-text">Você assina contrato de confidencialidade (NDA) quando necessário?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <span class="faq__icon-line faq__icon-line--h"></span>
+                <span class="faq__icon-line faq__icon-line--v"></span>
+              </span>
+            </button>
+          </h3>
+          <div class="faq__answer" id="faq-partner-answer-5" role="region" aria-labelledby="faq-partner-question-5" data-faq-panel>
+            <div class="faq__answer-inner">
+              <p class="faq__answer-text">Sim, sem problema algum. Entendo que informações de clientes e projetos de agências muitas vezes exigem sigilo, e isso faz parte do meu processo profissional.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item" data-faq-item>
+          <h3 class="faq__heading">
+            <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-partner-answer-6" id="faq-partner-question-6">
+              <span class="faq__trigger-text">Quais tecnologias e tipos de projeto você domina?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <span class="faq__icon-line faq__icon-line--h"></span>
+                <span class="faq__icon-line faq__icon-line--v"></span>
+              </span>
+            </button>
+          </h3>
+          <div class="faq__answer" id="faq-partner-answer-6" role="region" aria-labelledby="faq-partner-question-6" data-faq-panel>
+            <div class="faq__answer-inner">
+              <p class="faq__answer-text">Trabalho atualmente com HTML, CSS e JavaScript avançado, com migração para React/Next.js conforme a necessidade do projeto. Já desenvolvi sites institucionais, sistemas de agendamento e automações. Posso adaptar minha stack conforme o padrão técnico já utilizado pela agência.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item" data-faq-item>
+          <h3 class="faq__heading">
+            <button class="faq__trigger" type="button" data-faq-trigger aria-expanded="false" aria-controls="faq-partner-answer-7" id="faq-partner-question-7">
+              <span class="faq__trigger-text">Vocês assumem manutenção de projetos entregues por vocês/agência?</span>
+              <span class="faq__icon" aria-hidden="true">
+                <span class="faq__icon-line faq__icon-line--h"></span>
+                <span class="faq__icon-line faq__icon-line--v"></span>
+              </span>
+            </button>
+          </h3>
+          <div class="faq__answer" id="faq-partner-answer-7" role="region" aria-labelledby="faq-partner-question-7" data-faq-panel>
+            <div class="faq__answer-inner">
+              <p class="faq__answer-text">Sim, posso assumir manutenção de projetos que eu mesma desenvolvi ou, dependendo da avaliação técnica, projetos entregues por terceiros também.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===================================================
+     SEÇÃO: Rodapé
+     Namespace: .rodape
+=================================================== -->
+
+<footer class="rodape">
+  <div class="rodape__container">
+
+    <div class="rodape__marca">
+      <div class="rodape__logo-linha">
+        <span class="rodape__logo">JA</span>
+        <div>
+          <p class="rodape__nome">Joseane Alves</p>
+          <p class="rodape__subtitulo">Sites &amp; Sistemas Web</p>
+        </div>
+      </div>
+      <p class="rodape__tagline">
+        Desenvolvimento web com estratégia, design e tecnologia
+        para dar vida às ideias do seu negócio.
+      </p>
+    </div>
+
+    <nav class="rodape__coluna" aria-label="Navegação do rodapé">
+      <h4 class="rodape__titulo">Navegação</h4>
+      <ul class="rodape__lista">
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#cases">Cases</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#como-funciona">Como funciona</a></li>
+      </ul>
+    </nav>
+
+    <div class="rodape__coluna">
+      <h4 class="rodape__titulo">Serviços</h4>
+      <ul class="rodape__lista">
+        <li>Sites institucionais</li>
+        <li>Landing Pages</li>
+        <li>Sistemas Web sob medida</li>
+        <li>Parcerias para agências</li>
+      </ul>
+    </div>
+
+    <div class="rodape__coluna">
+      <h4 class="rodape__titulo">Contato</h4>
+      <ul class="rodape__lista rodape__lista--contato">
+        <li>
+          <svg class="rodape__icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" fill="currentColor"/></svg>
+          <span>(31) 98876-2922</span>
+        </li>
+        <li>
+          <svg class="rodape__icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5 7.3 5.4a1 1 0 0 0 1 0L19.8 6H4.2z" fill="currentColor"/></svg>
+          <span>joseanea.dealmeida@gmail.com</span>
+        </li>
+        <li>
+          <svg class="rodape__icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg>
+          <span>Santana do Paraíso - MG</span>
+        </li>
+        <li>
+          <svg class="rodape__icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-3.2a15.7 15.7 0 0 0-1.4-3.9A8 8 0 0 1 18.9 8zM12 4.1c.8 1 1.6 2.4 2.1 3.9H9.9c.5-1.5 1.3-2.9 2.1-3.9zM4.3 14a8.1 8.1 0 0 1 0-4h3.6a16.6 16.6 0 0 0 0 4H4.3zm.8 2h3.2c.3 1.4.8 2.7 1.4 3.9A8 8 0 0 1 5.1 16zm3.2-8H5.1a8 8 0 0 1 4.6-3.9A15.7 15.7 0 0 0 8.3 8zM12 19.9c-.8-1-1.6-2.4-2.1-3.9h4.2c-.5 1.5-1.3 2.9-2.1 3.9zM14.4 14H9.6a14.6 14.6 0 0 1 0-4h4.8a14.6 14.6 0 0 1 0 4zm.3 5.9c.6-1.2 1.1-2.5 1.4-3.9h3.2a8 8 0 0 1-4.6 3.9zM16.1 14a16.6 16.6 0 0 0 0-4h3.6a8.1 8.1 0 0 1 0 4h-3.6z" fill="currentColor"/></svg>
+          <span>Atendimento para todo o Brasil</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="rodape__coluna rodape__coluna--cta">
+      <h4 class="rodape__titulo">Vamos conversar?</h4>
+      <p class="rodape__cta-texto">
+        Me conte sobre seu projeto e vamos transformar ideias em resultados.
+      </p>
+      <a href="#contato" class="rodape__botao">Iniciar conversa</a>
+    </div>
+
+  </div>
+
+  <div class="rodape__base">
+    <p class="rodape__copyright">
+      © <span id="anoAtual">2026</span> Joseane Alves. Todos os direitos reservados.
+    </p>
+    <button class="rodape__topo" id="rodapeVoltarTopo" aria-label="Voltar ao topo">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l7 7-1.4 1.4L13 8.8V19h-2V8.8l-4.6 4.6L5 12z" fill="currentColor"/></svg>
+    </button>
+  </div>
+</footer>
+
+<!-- ===================================================
+     COMPONENTE: Botão Flutuante WhatsApp
+=================================================== -->
+
+<a
+  href="https://wa.me/5531988762922?text=Ol%C3%A1%2C%20Joseane!%20Vi%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
+  class="whats-flutuante"
+  id="whatsFlutuante"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Falar com Joseane no WhatsApp"
+>
+  <span class="whats-flutuante__tooltip">Fale comigo no WhatsApp</span>
+
+  <span class="whats-flutuante__anel"></span>
+
+  <svg class="whats-flutuante__icone" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.34.66 4.523 1.803 6.386L4 29l7.812-1.767A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3z" fill="#25D366"/>
+    <path d="M22.36 18.86c-.33-.165-1.95-.96-2.253-1.07-.303-.11-.523-.165-.744.165-.22.33-.853 1.07-1.045 1.29-.192.22-.385.248-.715.083-.33-.165-1.393-.513-2.653-1.636-.98-.874-1.642-1.953-1.834-2.283-.192-.33-.02-.508.145-.673.148-.148.33-.385.495-.578.165-.192.22-.33.33-.55.11-.22.055-.413-.028-.578-.083-.165-.744-1.793-1.02-2.456-.269-.646-.542-.559-.744-.57-.192-.01-.413-.012-.634-.012s-.578.083-.88.413c-.303.33-1.156 1.13-1.156 2.756 0 1.626 1.184 3.198 1.348 3.42.165.22 2.33 3.557 5.647 4.986.789.34 1.404.543 1.884.695.792.252 1.513.216 2.083.131.635-.095 1.95-.797 2.225-1.567.275-.77.275-1.43.192-1.567-.082-.138-.302-.22-.632-.385z" fill="#fff"/>
+  </svg>
+</a>
 
     <!-- ========================================================
      MODAL DO SIMULADOR
@@ -1127,6 +1766,10 @@
   <script src="components/simulador.js"></script>
   <script src="components/section-como-funciona.js"></script>
   <script src="components/section-sobre.js"></script>
+  <script src="components/cases.js"></script>
+  <script src="components/faq.js"></script>
+  <script src="components/whatsapp-flutuante.js"></script>
+  <script src="components/rodape.js"></script>
 </body>
 
 </html>

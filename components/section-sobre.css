@@ -85,16 +85,18 @@
    font-weight: 700;
    letter-spacing: .11em;
    text-transform: uppercase;
+   text-align: center;
 }
 
 .sobre__titulo {
-   margin: 0 0 1.4rem;
+   margin: 0 auto 1.4rem;
    max-width: 24rem;
    font-size: clamp(1.9rem, 2.9vw, 2.65rem);
    font-weight: 600;
    letter-spacing: -.03em;
    line-height: 1.15;
    color: var(--charcoal);
+   text-align: center;
 }
 
 .sobre__titulo em {
