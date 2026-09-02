@@ -136,8 +136,43 @@ O modal concentra o diagnóstico e suas etapas seguintes.
     color: #b9b3ac;
 }
 
+/* Lista de benefícios — preenche o espaço vazio da coluna guiada
+   sem competir com o CTA único dessa coluna. */
+.beneficio-lista {
+    margin: 0 0 28px;
+    padding: 0;
+
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.beneficio-lista li {
+    position: relative;
+    padding-left: 22px;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    color: #d8d2ca;
+}
+
+.beneficio-lista li::before {
+    content: "✓";
+
+    position: absolute;
+    left: 0;
+
+    color: #d98a5e;
+    font-weight: 700;
+}
+
 .botao-iniciar {
-    width: fit-content;
+    width: 100%;
+    text-align: center;
+
     margin-top: auto;
     padding: 14px 28px;
 
@@ -209,7 +244,10 @@ O modal concentra o diagnóstico e suas etapas seguintes.
 .opcoes-projeto {
     display: grid;
 
-    grid-template-columns: repeat(5, 1fr);
+    /* 9 cards agora (site, lp, blog, sistema, pwa, loja, gmn, bio, manutenção) —
+       auto-fit evita ter que recalcular colunas fixas toda vez que um
+       card é adicionado/removido, e já se adapta em qualquer largura. */
+    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
 
     gap: 10px;
 }
@@ -218,6 +256,102 @@ O modal concentra o diagnóstico e suas etapas seguintes.
     position: relative;
 
     cursor: pointer;
+}
+
+/* Card de manutenção puxa pra um fluxo totalmente diferente (sem preço/prazo
+   estimado) — por isso é mutuamente exclusivo com os demais. O estado
+   "desabilitado" é aplicado via JS quando ele é marcado. */
+.opcao-projeto--manutencao .opcao-conteudo {
+    border-style: dashed;
+}
+
+.opcao-projeto--disabled {
+    pointer-events: none;
+    opacity: .4;
+}
+
+/* ----------------------------------------------------------
+   CARDS DE DESTAQUE — manutenção e agência ocupam a largura
+   toda da grade (grid-column 1/-1), em layout horizontal,
+   pra se diferenciar visualmente dos 8 cards de projeto.
+   ---------------------------------------------------------- */
+
+.opcao-projeto--destaque {
+    grid-column: 1 / -1;
+}
+
+.opcao-projeto--destaque .opcao-conteudo {
+    min-height: 0;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 16px;
+
+    padding: 18px 22px;
+    text-align: left;
+}
+
+.opcao-destaque__texto {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.opcao-destaque__texto strong {
+    font-size: 13px;
+}
+
+.opcao-destaque__texto small {
+    margin-top: 0;
+    font-size: 11px;
+    color: #888;
+}
+
+/* Card "Sou agência" — cor propositalmente diferente dos cards de
+   projeto do cliente final, porque é outro assunto (parceria B2B,
+   não escolha de projeto). Usa o mesmo grafite das seções
+   estratégicas/dark do site. */
+.opcao-agencia {
+    display: block;
+    width: 100%;
+
+    border: 0;
+    background: none;
+    cursor: pointer;
+
+    font-family: inherit;
+    text-align: left;
+}
+
+.opcao-agencia .opcao-conteudo {
+    border-color: #17201f;
+    background: #17201f;
+}
+
+.opcao-agencia:hover .opcao-conteudo {
+    border-color: #2a3a38;
+}
+
+.opcao-agencia .opcao-destaque__texto strong {
+    color: #fff;
+}
+
+.opcao-agencia .opcao-destaque__texto small {
+    color: #b9b3ac;
+}
+
+@media (max-width: 700px) {
+
+    .opcao-projeto--destaque .opcao-conteudo {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .opcao-destaque__texto {
+        align-items: center;
+    }
 }
 
 .opcao-projeto input {
@@ -333,6 +467,7 @@ O modal concentra o diagnóstico e suas etapas seguintes.
 
     width: min(1100px, 100%);
     min-height: 600px;
+    max-height: 90vh;
 
     display: grid;
     grid-template-columns: 0.85fr 1.5fr;
@@ -437,7 +572,10 @@ O modal concentra o diagnóstico e suas etapas seguintes.
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .indicador-etapa {
@@ -537,6 +675,77 @@ O modal concentra o diagnóstico e suas etapas seguintes.
 
 
 /* ==========================================================
+   ETAPA 3 — PERGUNTAS DE COMPLEXIDADE (injetadas via JS)
+   ========================================================== */
+
+.pergunta-complexidade {
+    margin-bottom: 24px;
+}
+
+.pergunta-complexidade:last-child {
+    margin-bottom: 0;
+}
+
+.pergunta-complexidade h4 {
+    margin: 0 0 12px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #242424;
+}
+
+.pergunta-complexidade .opcoes {
+    display: grid;
+    gap: 8px;
+}
+
+
+/* ==========================================================
+   MODO MANUTENÇÃO
+   ========================================================== */
+
+.modo-manutencao {
+    display: none;
+}
+
+.modo-manutencao.ativo {
+    display: block;
+}
+
+/* Enquanto o modo manutenção está ativo, o form normal e a lista de
+   etapas (01/02/03) somem — é um fluxo de uma tela só. */
+.modal-simulador.modo-manutencao-ativo #formSimulador,
+.modal-simulador.modo-manutencao-ativo #modalEtapasLista,
+.modal-simulador.modo-manutencao-ativo .indicador-etapa {
+    display: none;
+}
+
+.modo-manutencao textarea {
+    width: 100%;
+    margin-top: 14px;
+    padding: 12px 14px;
+
+    border: 1px solid #e4dbd4;
+    border-radius: 7px;
+
+    font-family: inherit;
+    font-size: 12px;
+
+    resize: vertical;
+}
+
+.manutencao-nota {
+    margin: 18px 0 22px;
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    color: #888;
+}
+
+
+/* ==========================================================
    RESULTADO
    ========================================================== */
 
@@ -578,6 +787,176 @@ O modal concentra o diagnóstico e suas etapas seguintes.
     line-height: 1.6;
 
     color: #777;
+}
+
+/* Chips com os tipos de projeto recomendados/escolhidos */
+.resultado-lista {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    gap: 8px;
+
+    margin: 22px 0 0;
+}
+
+.resultado-lista span {
+    padding: 6px 14px;
+
+    border-radius: 999px;
+    background: #fff4ec;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    color: #c96b2c;
+}
+
+/* Prazo + investimento lado a lado */
+.resultado-detalhes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+
+    max-width: 420px;
+    margin: 26px auto 0;
+}
+
+.resultado-bloco {
+    padding: 16px;
+
+    border: 1px solid #eee4dc;
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+.resultado-bloco__label {
+    display: block;
+    margin-bottom: 6px;
+
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+
+    color: #999;
+}
+
+.resultado-bloco strong {
+    font-size: 15px;
+    color: #242424;
+}
+
+.resultado-notas {
+    max-width: 480px;
+    margin: 16px auto 0;
+
+    font-size: 11px;
+    line-height: 1.6;
+
+    color: #a89f97;
+}
+
+.resultado-acoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    margin-top: 28px;
+}
+
+/* O CTA de WhatsApp é um <a>, mas precisa se comportar visualmente
+   como .botao-proximo (que hoje só existe como estilo de <button>). */
+.botao-proximo--link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    text-decoration: none;
+}
+
+
+/* ==========================================================
+   MODAL AGÊNCIA
+   ========================================================== */
+
+.modal-conteudo--agencia {
+    display: block;
+
+    width: min(480px, 100%);
+    min-height: 0;
+
+    padding: 45px 40px;
+}
+
+.modal-agencia__cabecalho {
+    margin-bottom: 26px;
+    text-align: left;
+}
+
+.modal-agencia__cabecalho h2 {
+    margin: 8px 0 6px;
+    font-size: 26px;
+    line-height: 1.15;
+}
+
+.modal-agencia__cabecalho p {
+    margin: 0;
+    font-size: 13px;
+    color: #888;
+}
+
+.simulador-label--claro {
+    color: #17201f;
+}
+
+.modal-agencia__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.modal-agencia__form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    color: #999;
+}
+
+.modal-agencia__form input,
+.modal-agencia__form select,
+.modal-agencia__form textarea {
+    padding: 12px 14px;
+
+    border: 1px solid #e4dbd4;
+    border-radius: 7px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+    color: #242424;
+
+    resize: vertical;
+}
+
+.modal-agencia__form button {
+    margin-top: 6px;
+}
+
+@media (max-width: 700px) {
+
+    .modal-conteudo--agencia {
+        padding: 30px 25px;
+    }
 }
 
 

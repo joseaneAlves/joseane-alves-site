@@ -1,0 +1,421 @@
+<!--
+============================================================
+SIMULADOR DE PROJETO — markup atualizado
+============================================================
+Substitua, no seu index.html:
+
+1) O conteúdo de <div class="opcoes-projeto">...</div>
+   (dentro de .simulador-escolha) pelo bloco "PICKER" abaixo.
+
+2) O bloco inteiro <div id="modalSimulador">...</div>
+   pelo bloco "MODAL" abaixo.
+
+3) Dentro de <aside class="simulador-beneficios">, logo depois do
+   <p class="beneficio-intro">, cole o bloco "LISTA DE BENEFÍCIOS"
+   abaixo (antes do botão "Começar simulação guiada").
+
+4) Cole o bloco "MODAL AGÊNCIA" como um novo <div>, irmão do
+   #modalSimulador (fora dele, direto dentro do <main> ou do <body>,
+   onde fizer mais sentido no seu index.html).
+============================================================
+-->
+
+
+<!-- ============================================================
+     LISTA DE BENEFÍCIOS — cola dentro de .simulador-beneficios,
+     depois do <p class="beneficio-intro">
+     ============================================================ -->
+
+<ul class="beneficio-lista">
+  <li>Sugestão do tipo de projeto ideal pro seu negócio</li>
+  <li>Faixa de prazo estimada</li>
+  <li>Faixa de investimento aproximada</li>
+  <li>Base pronta pra conversarmos no briefing</li>
+</ul>
+
+
+<!-- ============================================================
+     PICKER — substitui <div class="opcoes-projeto">
+     ============================================================ -->
+
+<div class="opcoes-projeto">
+
+  <label class="opcao-projeto">
+    <input type="checkbox" name="projeto" value="site">
+    <span class="opcao-conteudo">
+      <span class="opcao-icone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 12C21 16.9706 16.9706 21 12 21M21 12C21 7.02944 16.9706 3 12 3M21 12C21 13.6569 16.9706 15 12 15C7.02944 15 3 13.6569 3 12M21 12C21 10.3431 16.9706 9 12 9C7.02944 9 3 10.3431 3 12M12 21C7.02944 21 3 16.9706 3 12M12 21C10.3431 21 9 16.9706 9 12C9 7.02944 10.3431 3 12 3M12 21C13.6569 21 15 16.9706 15 12C15 7.02944 13.6569 3 12 3M3 12C3 7.02944 7.02944 3 12 3"
+            stroke="#cf5d35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <strong>Site</strong>
+      <small>Institucional</small>
+    </span>
+  </label>
+
+  <label class="opcao-projeto">
+    <input type="checkbox" name="projeto" value="landing-page">
+    <span class="opcao-conteudo">
+      <span class="opcao-icone">
+        <svg fill="#cf5d35" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.67 10.73a3.52 3.52 0 0 0-.94 1.93 5 5 0 0 0-.07 1.1v.58h.8a5.05 5.05 0 0 0 .88-.08 3.46 3.46 0 0 0 1.93-.94 1.76 1.76 0 0 0-.14-2.48 1.76 1.76 0 0 0-2.46-.11zm1.74 1.73a2.26 2.26 0 0 1-1.26.6h-.22v-.22a2.26 2.26 0 0 1 .6-1.26.36.36 0 0 1 .24-.08.67.67 0 0 1 .47.22.54.54 0 0 1 .17.74zM14.65 2.24a.91.91 0 0 0-.89-.89A8.75 8.75 0 0 0 7.27 3.5L5.64 5.4l-2.4-.5a1 1 0 0 0-.92.27l-.68.68a1 1 0 0 0-.28.81 1 1 0 0 0 .45.74l2.06 1.32.13.08 3.2 3.25.08.08 1.32 2.06a1 1 0 0 0 .74.45h.11a1 1 0 0 0 .7-.29l.68-.68a1 1 0 0 0 .27-.92l-.5-2.39 1.84-1.58a8.79 8.79 0 0 0 2.21-6.54zM3.11 6.15l1.32.28-.64.75-1-.67zm6.38 7.1-.67-1 .75-.64.28 1.32zm2.39-5.11.18.17zm-.28-.28L7.92 11 5 8.08 8.14 4.4a7.44 7.44 0 0 1 5.26-1.8 7.48 7.48 0 0 1-1.8 5.26z"></path>
+          <path d="M11.13 6.63a1.19 1.19 0 0 0-.06-1.7 1.16 1.16 0 1 0-1.64 1.63 1.2 1.2 0 0 0 1.7.07z"></path>
+        </svg>
+      </span>
+      <strong>Landing</strong>
+      <small>Page</small>
+    </span>
+  </label>
+
+  <label class="opcao-projeto">
+    <input type="checkbox" name="projeto" value="blog">
+    <span class="opcao-conteudo">
+      <span class="opcao-icone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 4h16v4H4V4zm0 6h10v10H4V10zm12 0h4v10h-4V10z"
+            stroke="#cf5d35" stroke-width="1.6" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <strong>Blog</strong>
+      <small>Conteúdo</small>
+    </span>
+  </label>
+
+  <label class="opcao-projeto">
+    <input type="checkbox" name="projeto" value="sistema">
+    <span class="opcao-conteudo">
+      <span class="opcao-icone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="10.07" r="2.86" fill="none" stroke="#cf5d35" stroke-width="1.6"></circle>
+          <path d="M1.5,5.3v9.54a3.82,3.82,0,0,0,3.82,3.82H7.23v2.86L13,18.66h5.73a3.82,3.82,0,0,0,3.82-3.82V5.3a3.82,3.82,0,0,0-3.82-3.82H5.32A3.82,3.82,0,0,0,1.5,5.3Z"
+            fill="none" stroke="#cf5d35" stroke-width="1.6"></path>
+        </svg>
+      </span>
+      <strong>Sistema</strong>
+      <small>Web</small>
+    </span>
+  </label>
+
+  <label class="opcao-projeto">
+    <input type="checkbox" name="projeto" value="pwa">
+    <span class="opcao-conteudo">
+      <span class="opcao-icone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="2" width="12" height="20" rx="2" fill="none" stroke="#cf5d35" stroke-width="1.6"></rect>
+          <line x1="10" y1="18" x2="14" y2="18" stroke="#cf5d35" stroke-width="1.6" stroke-linecap="round"></line>
+        </svg>
+      </span>
+      <strong>PWA /</strong>
+      <small>Aplicação</small>
+    </span>
+  </label>
+
+  <label class="opcao-projeto">
+    <input type="checkbox" name="projeto" value="loja-virtual">
+    <span class="opcao-conteudo">
+      <span class="opcao-icone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 6h18l-1.5 9h-15L3 6z" stroke="#cf5d35" stroke-width="1.6" stroke-linejoin="round"></path>
+          <circle cx="9" cy="20" r="1.4" fill="#cf5d35"></circle>
+          <circle cx="17" cy="20" r="1.4" fill="#cf5d35"></circle>
+        </svg>
+      </span>
+      <strong>Loja</strong>
+      <small>Virtual</small>
+    </span>
+  </label>
+
+  <label class="opcao-projeto">
+    <input type="checkbox" name="projeto" value="gmn">
+    <span class="opcao-conteudo">
+      <span class="opcao-icone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21s7-6.1 7-11.2C19 5.9 15.9 3 12 3S5 5.9 5 9.8C5 14.9 12 21 12 21z"
+            stroke="#cf5d35" stroke-width="1.6" stroke-linejoin="round"></path>
+          <circle cx="12" cy="9.5" r="2.2" stroke="#cf5d35" stroke-width="1.6"></circle>
+        </svg>
+      </span>
+      <strong>Google Meu</strong>
+      <small>Negócio</small>
+    </span>
+  </label>
+
+  <label class="opcao-projeto">
+    <input type="checkbox" name="projeto" value="bio">
+    <span class="opcao-conteudo">
+      <span class="opcao-icone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 15l6-6M10 6l1.2-1.2a3.4 3.4 0 0 1 4.8 4.8L14.8 10.8M14 18l-1.2 1.2a3.4 3.4 0 0 1-4.8-4.8L9.2 13.2"
+            stroke="#cf5d35" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <strong>Link da</strong>
+      <small>Bio</small>
+    </span>
+  </label>
+
+  <label class="opcao-projeto opcao-projeto--manutencao opcao-projeto--destaque">
+    <input type="checkbox" name="projeto" value="manutencao">
+    <span class="opcao-conteudo">
+      <span class="opcao-icone">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4l-2.5 2.5-2-2z"
+            stroke="#cf5d35" stroke-width="1.6" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <span class="opcao-destaque__texto">
+        <strong>Já tenho um projeto, preciso de ajuste</strong>
+        <small>Correções, novas funcionalidades ou manutenção — sem entrar no simulador de preço.</small>
+      </span>
+    </span>
+  </label>
+
+  <!-- Não é um checkbox do grupo "projeto" — é uma ação à parte, que abre
+       um formulário próprio (#modalAgencia), sem passar pelas etapas do
+       simulador de cliente final. -->
+  <button type="button" id="abrirModalAgencia" class="opcao-agencia opcao-projeto--destaque">
+    <span class="opcao-conteudo">
+      <span class="opcao-icone opcao-icone--agencia">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 20V9l8-5 8 5v11M4 20h16M9 20v-6h6v6"
+            stroke="#f2a679" stroke-width="1.6" stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <span class="opcao-destaque__texto">
+        <strong>Sou agência ou parceiro(a) — quero conversar sobre parceria</strong>
+        <small>Terceirização, white-label ou indicação de projetos. Preencha um formulário rápido.</small>
+      </span>
+    </span>
+  </button>
+
+</div>
+
+
+<!-- ============================================================
+     MODAL — substitui <div id="modalSimulador">...
+     ============================================================ -->
+
+<div id="modalSimulador" class="modal-simulador" aria-hidden="true">
+
+  <div class="modal-conteudo">
+
+    <button type="button" id="fecharSimulador" class="fechar-simulador" aria-label="Fechar simulador">×</button>
+
+    <!-- COLUNA ESQUERDA DO MODAL -->
+    <aside class="modal-intro">
+
+      <span class="simulador-label">SIMULE SEU PROJETO</span>
+
+      <h2>Vamos entender <span>o que seu negócio precisa.</span></h2>
+
+      <ol class="modal-etapas" id="modalEtapasLista">
+        <li class="ativa"><span>01.</span><span>Público</span></li>
+        <li><span>02.</span><span>Objetivo</span></li>
+        <li><span>03.</span><span>Necessidades</span></li>
+      </ol>
+
+    </aside>
+
+
+    <!-- ÁREA DAS PERGUNTAS -->
+    <main class="modal-perguntas">
+
+      <div class="indicador-etapa">
+        <span id="numeroEtapa">01</span>
+      </div>
+
+
+      <!-- ===================================================
+           FLUXO NORMAL (site / lp / blog / sistema / pwa / loja / gmn / bio)
+           =================================================== -->
+      <form id="formSimulador">
+
+        <!-- ETAPA 1: PÚBLICO -->
+        <div class="etapa" id="etapa1">
+          <div class="etapa-cabecalho">
+            <h3>Quem você quer alcançar ou atender?</h3>
+          </div>
+          <div class="opcoes">
+            <label class="opcao-radio"><input type="checkbox" name="publico" value="consumidores"> Pessoas / consumidores</label>
+            <label class="opcao-radio"><input type="checkbox" name="publico" value="empresas"> Empresas</label>
+            <label class="opcao-radio"><input type="checkbox" name="publico" value="profissionais"> Profissionais / prestadores</label>
+            <label class="opcao-radio"><input type="checkbox" name="publico" value="clientes-atuais"> Clientes atuais</label>
+            <label class="opcao-radio"><input type="checkbox" name="publico" value="novos-clientes"> Novos clientes</label>
+          </div>
+        </div>
+
+        <!-- ETAPA 2: OBJETIVO -->
+        <div class="etapa" id="etapa2">
+          <div class="etapa-cabecalho">
+            <h3>O que você gostaria de alcançar?</h3>
+          </div>
+          <div class="opcoes">
+            <label class="opcao-radio"><input type="checkbox" name="objetivo" value="apresentar"> Apresentar melhor minha empresa</label>
+            <label class="opcao-radio"><input type="checkbox" name="objetivo" value="atrair-clientes"> Atrair novos clientes</label>
+            <label class="opcao-radio"><input type="checkbox" name="objetivo" value="vender"> Vender produtos ou serviços</label>
+            <label class="opcao-radio"><input type="checkbox" name="objetivo" value="agendamento"> Receber mais agendamentos</label>
+            <label class="opcao-radio"><input type="checkbox" name="objetivo" value="automatizar"> Automatizar processos</label>
+            <label class="opcao-radio"><input type="checkbox" name="objetivo" value="presenca-simples"> Ter presença no Google/redes, sem site completo</label>
+          </div>
+        </div>
+
+        <!-- ETAPA 3: PERGUNTAS DE COMPLEXIDADE (injetadas via JS) -->
+        <div class="etapa" id="etapa3">
+          <div id="perguntasProjeto"></div>
+        </div>
+
+        <div class="modal-navegacao">
+          <button type="button" id="voltarProjeto" class="botao-voltar">Voltar</button>
+          <button type="submit" class="botao-proximo">Próximo passo <span>→</span></button>
+        </div>
+
+      </form>
+
+
+      <!-- ===================================================
+           MODO MANUTENÇÃO (fluxo separado, sem preço/prazo estimado)
+           =================================================== -->
+      <div id="modoManutencao" class="modo-manutencao">
+
+        <div class="etapa-cabecalho">
+          <h3>O que você precisa ajustar ou melhorar?</h3>
+        </div>
+
+        <div class="opcoes">
+          <label class="opcao-radio"><input type="checkbox" name="manutencao-motivo" value="bugs"> Correção de erros/bugs</label>
+          <label class="opcao-radio"><input type="checkbox" name="manutencao-motivo" value="funcionalidades"> Novas funcionalidades</label>
+          <label class="opcao-radio"><input type="checkbox" name="manutencao-motivo" value="visual"> Atualização visual / design</label>
+          <label class="opcao-radio"><input type="checkbox" name="manutencao-motivo" value="performance"> Otimização de performance</label>
+          <label class="opcao-radio"><input type="checkbox" name="manutencao-motivo" value="outro"> Outro</label>
+        </div>
+
+        <textarea id="manutencaoDetalhes" rows="3"
+          placeholder="Se quiser, descreva rapidamente o que já existe e o que precisa mudar."></textarea>
+
+        <p class="manutencao-nota">
+          Cada projeto existente é diferente — por isso o valor e o prazo da manutenção
+          são definidos após uma breve análise. Também ofereço planos mensais de manutenção,
+          que costumam sair mais em conta do que ajustes pontuais.
+        </p>
+
+        <a href="https://wa.me/55SEUNUMEROAQUI" target="_blank" rel="noopener" id="ctaFalarManutencao" class="botao-proximo botao-proximo--link">
+          Falar com a Joseane <span>→</span>
+        </a>
+
+      </div>
+
+
+      <!-- ===================================================
+           RESULTADO
+           =================================================== -->
+      <div id="resultadoFinal" class="resultado-final">
+
+        <span class="resultado-icone">✓</span>
+
+        <h3>Encontramos um caminho para o seu projeto.</h3>
+
+        <p>Com base nas suas respostas, esta é uma estimativa inicial —
+          o valor final é sempre definido em uma reunião de briefing.</p>
+
+        <div id="resultadoLista" class="resultado-lista"></div>
+
+        <div class="resultado-detalhes">
+          <div class="resultado-bloco">
+            <span class="resultado-bloco__label">Prazo estimado</span>
+            <strong id="resultadoPrazo"></strong>
+          </div>
+          <div class="resultado-bloco">
+            <span class="resultado-bloco__label">Investimento</span>
+            <strong id="resultadoValor"></strong>
+          </div>
+        </div>
+
+        <p id="resultadoNotas" class="resultado-notas"></p>
+
+        <div class="resultado-acoes">
+          <button type="button" id="refazerSimulador" class="botao-voltar">Refazer simulação</button>
+          <a href="https://wa.me/55SEUNUMEROAQUI" target="_blank" rel="noopener" id="ctaAgendarConversa" class="botao-proximo botao-proximo--link">
+            Agendar conversa <span>→</span>
+          </a>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</div>
+
+
+<!-- ============================================================
+     MODAL AGÊNCIA — formulário próprio, sem etapas nem preço/prazo
+     ============================================================ -->
+
+<div id="modalAgencia" class="modal-simulador" aria-hidden="true">
+
+  <div class="modal-conteudo modal-conteudo--agencia">
+
+    <button type="button" id="fecharModalAgencia" class="fechar-simulador" aria-label="Fechar formulário">×</button>
+
+    <div class="modal-agencia__cabecalho">
+      <span class="simulador-label simulador-label--claro">PARCERIA</span>
+      <h2>Vamos falar sobre parceria.</h2>
+      <p>Conte um pouco sobre sua agência ou seu projeto de indicação.</p>
+    </div>
+
+    <form id="formAgencia" class="modal-agencia__form">
+
+      <!-- Web3Forms: chave de acesso + assunto do e-mail que a Joseane recebe -->
+      <input type="hidden" name="access_key" value="0d766764-46a5-4a51-817c-affe71321a9a">
+      <input type="hidden" name="subject" value="Novo contato de agência/parceria — site Joseane Alves">
+      <input type="hidden" name="from_name" value="Simulador do site — formulário de agência">
+      <!-- honeypot anti-spam: bots costumam preencher campos ocultos como este -->
+      <input type="checkbox" name="botcheck" style="display:none">
+
+      <label>
+        Nome
+        <input type="text" name="agenciaNome" required>
+      </label>
+
+      <label>
+        Empresa / agência
+        <input type="text" name="agenciaEmpresa">
+      </label>
+
+      <label>
+        WhatsApp
+        <input type="tel" name="agenciaWhatsapp" required placeholder="(00) 00000-0000">
+      </label>
+
+      <label>
+        E-mail
+        <!-- nome "email" é o que o Web3Forms reconhece pra preencher
+             automaticamente o "Responder para" do e-mail que você recebe -->
+        <input type="email" name="email" required placeholder="nome@empresa.com">
+      </label>
+
+      <label>
+        Tipo de parceria
+        <select name="agenciaTipo">
+          <option value="white-label">Terceirização / white-label</option>
+          <option value="indicacao">Indicação de projetos</option>
+          <option value="outro">Outro</option>
+        </select>
+      </label>
+
+      <label>
+        Conte um pouco mais
+        <textarea name="agenciaMensagem" rows="3" placeholder="Que tipo de projeto ou volume vocês costumam ter?"></textarea>
+      </label>
+
+      <button type="submit" class="botao-proximo">
+        Enviar pelo WhatsApp <span>→</span>
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
