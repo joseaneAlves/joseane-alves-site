@@ -152,7 +152,7 @@ O modal concentra o diagnóstico e suas etapas seguintes.
 .beneficio-lista li {
     position: relative;
     padding-left: 22px;
-
+    text-align: left !important;
     font-size: 13px;
     line-height: 1.5;
 
@@ -1028,6 +1028,10 @@ O modal concentra o diagnóstico e suas etapas seguintes.
     .simulador-escolha h3,
     .simulador-beneficios h3 {
         font-size: 22px;
+    }
+
+    .beneficio-lista li{
+        text-align: left !important;
     }
 
     .opcoes-projeto {

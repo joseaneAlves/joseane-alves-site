@@ -803,6 +803,10 @@ html.is-animating .paper-flow .flow-process {
       font-size: clamp(2rem, 7vw, 2.85rem);
       line-height: .98;
    }
+   .button--primary,
+   .button--secondary{
+      width: 100%;
+   }
 
 }
 

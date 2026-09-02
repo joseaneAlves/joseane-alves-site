@@ -344,9 +344,21 @@
   }
 }
 
+@media (min-width: 561px) and (max-width:719px) {
+  .cases__view-all {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
 @media (max-width: 560px) {
   .cases {
     padding: 56px 18px;
+  }
+
+  .cases__view-all {
+    width: 100% !important;
+    justify-content: center !important;
   }
 
   .cases__mockup {
