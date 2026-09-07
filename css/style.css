@@ -127,16 +127,22 @@ button {
 .brand__name {
    display: grid;
    gap: .1rem;
-   font-size: .84rem;
+   font-size: 14px;
    font-weight: 600;
    letter-spacing: -.04em;
    line-height: 1.1;
 }
 
 .brand__name small {
-   font-size: .52rem;
+   font-size: 14px;
    font-weight: 500;
 }
+
+.logo {
+    height: 48px;
+    margin-bottom: 10px;
+}
+
 
 .desktop-nav {
    display: flex;
@@ -151,6 +157,7 @@ button {
 .desktop-nav a {
    position: relative;
    padding-block: .65rem;
+   font-size: 14px;
 }
 
 .desktop-nav a::after {
@@ -785,6 +792,15 @@ html.is-animating .paper-flow .flow-process {
 
    }
 }
+
+@media (min-width:768px){
+   .logo{
+      height: 32px;
+      margin-bottom: 10px;
+
+   }
+}
+
 
 @media (min-width:561px) and (max-width:720px) {
 
