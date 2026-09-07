@@ -91,3 +91,39 @@
 
    observer.observe(section);
 })();
+
+/* ==========================================================================
+   PONTE COM O SIMULADOR
+   Cada link "Quero X →" marca o checkbox certo em .opcoes-projeto e abre
+   o modal direto na Etapa 1 — em vez de um <a> morto pra #contato, ou de
+   fazer a pessoa escolher tudo de novo lá embaixo.
+
+   Depende de funções globais definidas em simulador.js (iniciarComProjetos,
+   abrirModalAgenciaFn). Isso funciona mesmo com section-situacao.js
+   carregando antes de simulador.js no <head>/<body>, porque aqui só
+   registramos o clique — as funções só precisam existir no momento em
+   que a pessoa realmente clica, não no momento em que a página carrega.
+   ========================================================================== */
+(() => {
+   const links = document.querySelectorAll(
+      '.situation-card__link[data-projeto], .situation-card__link[data-abrir]'
+   );
+
+   links.forEach((link) => {
+      link.addEventListener('click', (event) => {
+         event.preventDefault();
+
+         if (link.dataset.abrir === 'agencia') {
+            if (typeof abrirModalAgenciaFn === 'function') abrirModalAgenciaFn();
+            return;
+         }
+
+         link.dataset.projeto.split(',').forEach((tipo) => {
+            const input = document.querySelector(`input[name="projeto"][value="${tipo}"]`);
+            if (input) input.checked = true;
+         });
+
+         if (typeof iniciarComProjetos === 'function') iniciarComProjetos();
+      });
+   });
+})();
